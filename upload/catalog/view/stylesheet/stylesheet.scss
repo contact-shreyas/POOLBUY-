@@ -1,9 +1,16 @@
 body {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #444;
 }
 
@@ -26,19 +33,25 @@ button:focus {
 /* container */
 #container {
   width: 100%;
-  min-height: 100%;
-  position: absolute;
-  margin-bottom: 300px;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 /* content */
-#content, #column-left, #column-right {
-  padding-bottom: 730px;
+#content,
+#column-left,
+#column-right {
+  padding-bottom: 40px;
 }
 
 @media (min-width: 576px) {
-  #content, #column-left, #column-right {
-    padding-bottom: 400px;
+
+  #content,
+  #column-left,
+  #column-right {
+    padding-bottom: 40px;
   }
 }
 
@@ -121,7 +134,9 @@ button:focus {
   margin-bottom: 0;
 }
 
-#top .list-inline-item > a, #top .list-inline-item .dropdown > a, #top .list-inline-item .dropdown > span {
+#top .list-inline-item>a,
+#top .list-inline-item .dropdown>a,
+#top .list-inline-item .dropdown>span {
   font-size: 1.1em;
   color: var(--bs-gray-600);
   line-height: 40px;
@@ -206,14 +221,14 @@ button:focus {
   margin-bottom: 20px;
 }
 
-#menu .navbar-nav > li > a {
+#menu .navbar-nav>li>a {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   padding: 10px 15px 10px 15px;
   background-color: transparent;
 }
 
-#menu .navbar-nav > li > a:hover {
+#menu .navbar-nav>li>a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -241,23 +256,23 @@ button:focus {
     flex-direction: row;
   }
 
-  #menu .nav-item + .nav-item + .nav-item .dropdown-column-3 {
+  #menu .nav-item+.nav-item+.nav-item .dropdown-column-3 {
     left: -200px;
   }
 
-  #menu .nav-item + .nav-item + .nav-item .dropdown-column-4 {
+  #menu .nav-item+.nav-item+.nav-item .dropdown-column-4 {
     left: -400px;
   }
 
-  #menu .nav-item + .nav-item + .nav-item + .nav-item .dropdown-column-2 {
+  #menu .nav-item+.nav-item+.nav-item+.nav-item .dropdown-column-2 {
     left: -200px;
   }
 
-  #menu .nav-item + .nav-item + .nav-item + .nav-item .dropdown-column-3 {
+  #menu .nav-item+.nav-item+.nav-item+.nav-item .dropdown-column-3 {
     left: -400px;
   }
 
-  #menu .nav-item + .nav-item + .nav-item + .nav-item .dropdown-column-4 {
+  #menu .nav-item+.nav-item+.nav-item+.nav-item .dropdown-column-4 {
     left: -600px;
   }
 }
@@ -278,7 +293,8 @@ button:focus {
 }
 
 /* default boostrap changes */
-div.required .col-form-label:before, div.required .form-label:before {
+div.required .col-form-label:before,
+div.required .form-label:before {
   content: '* ';
   color: #F00;
   font-weight: bold;
@@ -308,13 +324,12 @@ div.required .col-form-label:before, div.required .form-label:before {
 
 /* footer */
 footer {
-  border: 1px solid #000000;
-  position: absolute;
-  bottom: -1px;
+  border-top: 1px solid #ddd;
+  position: static;
+  margin-top: auto;
   width: 100%;
   padding-top: 30px;
   background-color: #303030;
-  border-top: 1px solid #ddd;
   color: #e2e2e2;
 }
 
@@ -353,13 +368,13 @@ footer h5 {
     font-size: 15px;
   }
 
-  > li.breadcrumb-item {
+  >li.breadcrumb-item {
     text-shadow: 0 1px 0 #FFF;
     padding: 0 20px;
     position: relative;
     white-space: nowrap;
 
-    > a {
+    >a {
       text-decoration: none;
     }
 
@@ -376,7 +391,7 @@ footer h5 {
       transform: rotate(-45deg);
     }
 
-    + li {
+    +li {
       &:before {
         content: '';
         padding: 0;
@@ -390,25 +405,31 @@ footer h5 {
   position: relative;
   height: 100%;
 }
+
 .product-thumb .image {
   text-align: center;
 }
+
 .product-thumb .image a:hover {
   opacity: 0.8;
 }
+
 .product-thumb .description {
   padding: 15px;
   margin-bottom: 45px;
 }
+
 .product-thumb .description h4 {
   font-weight: bold;
 }
+
 .product-thumb .button {
   display: flex;
   position: absolute;
   width: 100%;
   bottom: 0;
 }
+
 .product-thumb .button button {
   width: 33.33%;
   border: none;
@@ -426,7 +447,7 @@ footer h5 {
   cursor: pointer;
 }
 
-.product-thumb .button button + button {
+.product-thumb .button button+button {
   border-left: 1px solid var(--bs-border-color);
 }
 
@@ -448,7 +469,7 @@ footer h5 {
 
   .product-list .product-thumb .button {
     border-left: 1px solid #ddd;
-    width: calc(100% -  15px);
+    width: calc(100% - 15px);
     margin-left: 15px;
   }
 }
@@ -467,7 +488,7 @@ footer h5 {
   font-size: 15px;
 }
 
-.rating .fa-star + .fa-star {
+.rating .fa-star+.fa-star {
   color: #E69500;
 }
 

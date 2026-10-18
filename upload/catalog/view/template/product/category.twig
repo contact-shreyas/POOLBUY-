@@ -1,5 +1,5 @@
 {{ header }}
-<div id="product-category" class="container">
+<div id="product-category" class="pb-container py-4">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
       <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
@@ -21,66 +21,42 @@
       {% endif %}
 
       {% if categories %}
-        <h3>{{ text_refine }}</h3>
-        {% if categories|length <= 5 %}
-          <div class="row">
-            <div class="col-sm-3">
-              <ul>
-                {% for category in categories %}
-                  <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-                {% endfor %}
-              </ul>
-            </div>
+        <div class="mb-4 p-3 bg-white border rounded" style="border-color: #E2E8F0 !important;">
+          <div class="fw-bold text-uppercase small text-muted mb-2" style="font-size: 0.78rem; letter-spacing: 0.05em;">
+            <i class="fa-solid fa-layer-group me-1 text-primary"></i> Subcategories &amp; Specialized Verticals:
           </div>
-        {% else %}
-          <div class="row row-cols-sm-2 row-cols-lg-4">
-            {% set total = category.children|length %}
-            {% if total > 20 %}
-              {% set batch = (total / 4)|round(0, 'ceil') %}
-            {% else %}
-              {% set batch = 5 %}
-            {% endif %}
-            {% for category in categories|batch(batch) %}
-              <div class="col">
-                <ul>
-                  {% for child in category %}
-                    <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-                  {% endfor %}
-                </ul>
-              </div>
+          <div class="d-flex flex-wrap gap-2">
+            {% for category in categories %}
+              <a href="{{ category.href }}" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 bg-white text-dark text-decoration-none" style="font-weight: 500; font-size: 0.82rem; border-color: #CBD5E1;">
+                {{ category.name }}
+              </a>
             {% endfor %}
           </div>
-          <br/>
-        {% endif %}
+        </div>
       {% endif %}
 
       {% if products %}
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="mb-3">
-              <a href="{{ compare }}" id="compare-total" class="btn btn-primary d-block"><i class="fa-solid fa-arrow-right-arrow-left"></i> <span class="d-none d-xl-inline">{{ text_compare }}</span></a>
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 p-3 mb-4 rounded bg-white border" style="border-color: #E2E8F0 !important;">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted small fw-semibold">View:</span>
+            <div class="btn-group btn-group-sm">
+              <button type="button" id="button-grid" class="btn btn-outline-primary active" data-bs-toggle="tooltip" title="{{ button_grid }}"><i class="fa-solid fa-table-cells"></i></button>
+              <button type="button" id="button-list" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="{{ button_list }}"><i class="fa-solid fa-table-list"></i></button>
             </div>
+            <a href="{{ compare }}" id="compare-total" class="btn btn-sm btn-outline-secondary ms-2" style="font-size: 0.8rem; border-color: #CBD5E1;"><i class="fa-solid fa-arrow-right-arrow-left me-1"></i> <span class="d-none d-sm-inline">{{ text_compare }}</span></a>
           </div>
-          <div class="col-lg-1 d-none d-lg-block">
-            <div class="btn-group">
-              <button type="button" id="button-list" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_list }}"><i class="fa-solid fa-table-list"></i></button>
-              <button type="button" id="button-grid" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_grid }}"><i class="fa-solid fa-table-cells"></i></button>
-            </div>
-          </div>
-          <div class="col-lg-4 offset-lg-1 col-6">
-            <div class="input-group mb-3">
-              <label for="input-sort" class="input-group-text">{{ text_sort }}</label>
-              <select id="input-sort" class="form-select" onchange="location = this.value;">
+          <div class="d-flex align-items-center gap-3 ms-auto">
+            <div class="d-flex align-items-center gap-2">
+              <label for="input-sort" class="text-muted small fw-semibold text-nowrap mb-0">{{ text_sort }}:</label>
+              <select id="input-sort" class="form-select form-select-sm" style="min-width: 140px;" onchange="location = this.value;">
                 {% for sorts in sorts %}
                   <option value="{{ sorts.href }}"{% if sorts.value == '%s-%s'|format(sort, order) %} selected{% endif %}>{{ sorts.text }}</option>
                 {% endfor %}
               </select>
             </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <div class="input-group mb-3">
-              <label for="input-limit" class="input-group-text">{{ text_limit }}</label>
-              <select id="input-limit" class="form-select" onchange="location = this.value;">
+            <div class="d-flex align-items-center gap-2">
+              <label for="input-limit" class="text-muted small fw-semibold text-nowrap mb-0">{{ text_limit }}:</label>
+              <select id="input-limit" class="form-select form-select-sm" style="width: 80px;" onchange="location = this.value;">
                 {% for limits in limits %}
                   <option value="{{ limits.href }}"{% if limits.value == limit %} selected{% endif %}>{{ limits.text }}</option>
                 {% endfor %}

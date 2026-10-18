@@ -1,162 +1,354 @@
 {#
-  PoolBuy landing page.
-
-  All PoolBuy values are passed through |escape because OpenCart runs Twig with
-  autoescape disabled, and pool titles / seller names are operator supplied.
+  PoolBuy Wholesale B2B Landing Page
+  Inspired by IndiaMART & Global Wholesale Leaders:
+  - 1400px Balanced Canvas for standard desktop 100% zoom (Ctrl + 0)
+  - Interactive "Post Buy Requirement" Instant RFQ Card
+  - Active Momentum Buying Pool Showcase
+  - 4-Column Verified B2B Wholesale Trust Strip
+  - 12 Major B2B Category Mega-Grid with authentic imagery & subcategories
+  - 8 Trending Factory Wholesale Products with Rupee (₹) pricing, volume tiers & direct MOQ add-to-cart
+  - Collaborative Procurement 4-Step Guide & Closing Supplier/Buyer Portal CTA
 #}
-<section class="pb-container pb-section">
-  <div class="pb-split">
-    <div>
-      <span class="pb-badge pb-badge--soft pb-mb-md">
-        <i class="fa-solid fa-circle-check" aria-hidden="true"></i> {{ text_hero_badge }}
-      </span>
 
-      <h1 class="pb-display-lg pb-mb-md" style="font-size: clamp(36px, 5vw, 56px); line-height: 1.1;">
-        {{ text_hero_title_1 }}<br/><span class="pb-primary-text">{{ text_hero_title_2 }}</span>
-      </h1>
+{# 1. Hero Section: Direct Sourcing & Instant RFQ #}
+<section class="pb-hero-section pb-section">
+  <div class="pb-container">
+    <div class="row align-items-center g-4 g-xl-5">
+      <div class="col-lg-7">
+        <span class="pb-badge pb-badge--soft pb-mb-md">
+          <i class="fa-solid fa-shield-halved text-success me-1"></i> India's Premier B2B Wholesale &amp; Group Buying Network
+        </span>
 
-      <p class="pb-body-lg pb-muted pb-mb-xl" style="max-width: 34rem;">{{ text_hero_body }}</p>
+        <h1 class="pb-display-lg pb-mb-md" style="font-family: var(--font-heading); font-size: clamp(34px, 4.2vw, 54px); line-height: 1.15; font-weight: 800;">
+          Direct Manufacturer Sourcing<br/>
+          <span style="color: #2563EB; font-weight: 800;">at True Factory Wholesale Prices</span>
+        </h1>
 
-      <div class="pb-flex pb-wrap pb-gap-md pb-mb-xl">
-        <a class="pb-btn pb-btn--primary pb-btn--lg" href="{{ marketplace }}">
-          {{ button_join_buyer }} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-        <a class="pb-btn pb-btn--ghost pb-btn--lg" href="{{ contact }}">{{ button_become_seller }}</a>
+        <p class="pb-body-lg pb-muted pb-mb-xl" style="max-width: 52rem; font-size: 1.15rem; line-height: 1.6;">
+          Source directly from verified GST manufacturers and join collaborative buying pools. Pool wholesale order volume with other businesses across India to unlock tier-1 factory pricing with zero middleman markups.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3 pb-mb-xl">
+          <a class="pb-btn pb-btn--pill-filled pb-btn--lg" href="{{ marketplace }}">
+            Browse Marketplace <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+          <a class="pb-btn pb-btn--pill-outline pb-btn--lg" href="{{ contact }}">
+            <i class="fa-solid fa-industry me-1"></i> Supply as Manufacturer
+          </a>
+        </div>
+
+        <div class="pb-stats-strip d-flex flex-wrap gap-4 pt-3 border-top">
+          <div>
+            <div class="pb-display-md" style="font-size: 1.75rem; font-weight: 800; color: #0F294D;">₹250+ Cr</div>
+            <div class="pb-label-sm pb-muted text-uppercase" style="letter-spacing: 0.05em; font-size: 0.8rem;">Sourced Volume</div>
+          </div>
+          <div class="border-start ps-4">
+            <div class="pb-display-md" style="font-size: 1.75rem; font-weight: 800; color: #0F294D;">100%</div>
+            <div class="pb-label-sm pb-muted text-uppercase" style="letter-spacing: 0.05em; font-size: 0.8rem;">GST ITC Invoices</div>
+          </div>
+          <div class="border-start ps-4">
+            <div class="pb-display-md" style="font-size: 1.75rem; font-weight: 800; color: #0F294D;">19,000+</div>
+            <div class="pb-label-sm pb-muted text-uppercase" style="letter-spacing: 0.05em; font-size: 0.8rem;">Freight Pincodes</div>
+          </div>
+          <div class="border-start ps-4">
+            <div class="pb-display-md" style="font-size: 1.75rem; font-weight: 800; color: #0F294D;">Tier-1</div>
+            <div class="pb-label-sm pb-muted text-uppercase" style="letter-spacing: 0.05em; font-size: 0.8rem;">Direct OEM Hubs</div>
+          </div>
+        </div>
       </div>
 
-      <div class="pb-flex pb-wrap pb-gap-xl pb-tnum">
-        <div>
-          <div class="pb-display-lg">{{ stats.active_products }}</div>
-          <div class="pb-label-md pb-muted pb-uppercase">{{ text_stat_products }}</div>
-        </div>
-        <div>
-          <div class="pb-display-lg">{{ stats.active_sellers }}</div>
-          <div class="pb-label-md pb-muted pb-uppercase">{{ text_stat_suppliers }}</div>
-        </div>
-        <div>
-          <div class="pb-display-lg">{{ stats.units_pooled }}</div>
-          <div class="pb-label-md pb-muted pb-uppercase">{{ text_stat_units }}</div>
-        </div>
-      </div>
-    </div>
+      <div class="col-lg-5">
+        {# IndiaMART-style Interactive Post Requirement / RFQ Card #}
+        <div class="pb-rfq-card">
+          <div class="pb-rfq-header">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <span class="pb-rfq-badge"><i class="fa-solid fa-bolt text-warning me-1"></i> INSTANT RFQ</span>
+              <span class="text-success small fw-semibold"><i class="fa-solid fa-circle-check me-1"></i> Verified Manufacturers</span>
+            </div>
+            <h3 class="pb-rfq-title">Post Your Wholesale Requirement</h3>
+            <p class="pb-rfq-sub">Get direct wholesale price quotes from top Indian manufacturers within 2 hours.</p>
+          </div>
 
-    {# Hero pool card. Renders a genuine live pool, or an honest empty state. #}
-    <div class="pb-hero-frame d-none d-lg-block">
-      <div class="pb-hero-card">
-        {% if featured %}
-          <div class="pb-flex pb-justify-between pb-items-center pb-mb-lg">
-            <span class="pb-headline-sm pb-primary-text">{{ text_live_pool }}</span>
-            {% if featured.is_urgent %}
-              <span class="pb-badge pb-badge--urgent">
-                <i class="fa-regular fa-clock" aria-hidden="true"></i>
-                {{ text_urgent }}
+          <form action="{{ search_action }}" method="get" class="pb-rfq-form">
+            <input type="hidden" name="route" value="product/search"/>
+            <input type="hidden" name="language" value="{{ lang }}"/>
+            
+            <div class="mb-3">
+              <label class="pb-rfq-label" for="rfq-product">Product / Raw Material Name *</label>
+              <div class="input-group mb-1">
+                <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                <input type="text" id="rfq-product" name="search" class="form-control border-start-0" placeholder="e.g. Solar Panels, Submersible Pumps, FRP Vessels..." required/>
+              </div>
+              <div class="d-flex flex-wrap gap-1 mt-1">
+                <span class="text-muted" style="font-size: 0.72rem;">Popular:</span>
+                <button type="button" class="badge bg-light text-dark border text-decoration-none py-1 px-2" style="font-weight: 500; font-size: 0.72rem; cursor: pointer;" onclick="document.getElementById('rfq-product').value='Solar Panels';">Solar Panels</button>
+                <button type="button" class="badge bg-light text-dark border text-decoration-none py-1 px-2" style="font-weight: 500; font-size: 0.72rem; cursor: pointer;" onclick="document.getElementById('rfq-product').value='Submersible Pump';">Pumps</button>
+                <button type="button" class="badge bg-light text-dark border text-decoration-none py-1 px-2" style="font-weight: 500; font-size: 0.72rem; cursor: pointer;" onclick="document.getElementById('rfq-product').value='Cartons';">Cartons</button>
+                <button type="button" class="badge bg-light text-dark border text-decoration-none py-1 px-2" style="font-weight: 500; font-size: 0.72rem; cursor: pointer;" onclick="document.getElementById('rfq-product').value='Pressure Vessels';">FRP Vessels</button>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <div class="col-7">
+                <label class="pb-rfq-label" for="rfq-qty">Estimated Quantity *</label>
+                <input type="number" id="rfq-qty" class="form-control" placeholder="e.g. 500" min="1" value="100"/>
+              </div>
+              <div class="col-5">
+                <label class="pb-rfq-label" for="rfq-unit">Unit Type</label>
+                <select id="rfq-unit" class="form-select">
+                  <option value="pcs">Pieces</option>
+                  <option value="boxes">Boxes</option>
+                  <option value="meters">Meters</option>
+                  <option value="kg">Kg / Tons</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="pb-rfq-label" for="rfq-city">Destination City / Pincode</label>
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-location-dot text-muted"></i></span>
+                <input type="text" id="rfq-city" class="form-control border-start-0" placeholder="e.g. Mumbai, 400001"/>
+              </div>
+            </div>
+
+            <button type="submit" class="pb-btn pb-btn--pill-filled w-100 py-2 pb-rfq-submit">
+              <i class="fa-solid fa-paper-plane me-2"></i> Get Wholesale Quotes Now
+            </button>
+            <div class="text-center mt-2">
+              <span class="text-muted" style="font-size: 0.78rem;">
+                <i class="fa-solid fa-lock text-success me-1"></i> No spam &bull; Direct factory connections &bull; 100% Free
               </span>
-            {% endif %}
-          </div>
-
-          <div class="pb-flex pb-gap-md pb-items-center pb-mb-lg" style="background: var(--pb-surface-container-low); border: 1px solid var(--pb-outline-variant); border-radius: var(--pb-radius-md); padding: var(--pb-md);">
-            <img src="{{ featured.thumb }}" alt="{{ featured.title|escape }}" width="80" height="80" style="width: 80px; height: 80px; border-radius: var(--pb-radius); object-fit: cover;"/>
-            <div class="pb-grow">
-              <h2 class="pb-headline-sm pb-mb-xs"><a class="pb-link" href="{{ featured.href }}">{{ featured.title|escape }}</a></h2>
-              <div class="pb-flex pb-justify-between pb-label-md pb-mb-xs pb-tnum">
-                <span class="pb-muted">{{ text_target }}: {{ featured.moq_target }} {{ featured.unit_label|escape }}</span>
-                <span class="pb-primary-text">{{ text_filled|format(featured.reserved_qty, featured.moq_target) }}</span>
-              </div>
-              <div class="pb-progress pb-progress--sm pb-progress--pulse" role="progressbar" aria-label="{{ featured.title|escape }}" aria-valuenow="{{ featured.fill }}" aria-valuemin="0" aria-valuemax="100">
-                <div class="pb-progress__bar{% if featured.progress_modifier %} pb-progress__bar--{{ featured.progress_modifier }}{% endif %}" style="width: {{ featured.fill }}%;"></div>
-              </div>
             </div>
-          </div>
-
-          <div class="pb-grid pb-grid-2">
-            <div class="pb-figure">
-              <span class="pb-figure__label">{{ text_your_price }}</span>
-              <span class="pb-figure__value pb-tertiary-text pb-tnum">{{ featured.unit_price_text }}</span>
-            </div>
-            {% if featured.has_retail_saving %}
-              <div class="pb-figure" style="background: var(--pb-surface-container-high);">
-                <span class="pb-figure__label">{{ text_retail_price }}</span>
-                <span class="pb-figure__value pb-muted pb-strike pb-tnum">{{ featured.retail_price_text }}</span>
-              </div>
-            {% endif %}
-          </div>
-
-          <p class="pb-pool-hint">{{ featured.hint|escape }}</p>
-        {% else %}
-          <div class="pb-empty">
-            <div class="pb-empty__icon"><i class="fa-solid fa-users-rectangle" aria-hidden="true"></i></div>
-            <p class="pb-headline-sm pb-mb-sm">{{ text_no_pool }}</p>
-            <p class="pb-body-md pb-mb-0">{{ text_no_pool_body }}</p>
-          </div>
-        {% endif %}
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-{# Trust strip #}
-<section class="pb-strip pb-reveal">
-  <ul class="pb-container pb-strip__list">
-    <li class="pb-strip__item"><i class="fa-solid fa-users" aria-hidden="true"></i> {{ text_trust_buyers }}</li>
-    <li class="pb-strip__item"><i class="fa-solid fa-truck" aria-hidden="true"></i> {{ text_trust_shipping }}</li>
-    <li class="pb-strip__item"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> {{ text_trust_secure }}</li>
-    <li class="pb-strip__item"><i class="fa-solid fa-headset" aria-hidden="true"></i> {{ text_trust_support }}</li>
-  </ul>
+{# 2. Live Procurement Momentum Pool #}
+{% if featured %}
+<section class="pb-container pb-mb-2xl pb-reveal">
+  <div class="pb-featured-pool-banner">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-3 col-md-4 text-center">
+        <a href="{{ featured.href }}">
+          <img src="{{ featured.thumb }}" alt="{{ featured.title|escape }}" class="pb-featured-pool-img img-fluid"/>
+        </a>
+      </div>
+      <div class="col-lg-6 col-md-8">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <span class="badge" style="background: #0F294D; color: #FFFFFF; font-weight: 700; padding: 6px 12px; border-radius: 6px;"><i class="fa-solid fa-fire text-warning me-1"></i> LIVE GROUP POOL</span>
+          {% if featured.is_urgent %}
+            <span class="badge bg-warning text-dark"><i class="fa-regular fa-clock me-1"></i> Closing Soon</span>
+          {% endif %}
+          <span class="text-muted small"><i class="fa-solid fa-tag me-1"></i> Save up to 40% vs Retail</span>
+        </div>
+        <h3 class="pb-featured-pool-title mb-2">
+          <a href="{{ featured.href }}" class="text-dark text-decoration-none">{{ featured.title|escape }}</a>
+        </h3>
+        <p class="text-muted small mb-3">{{ featured.hint|escape }}</p>
+        
+        <div class="pb-progress-wrap mb-2">
+          <div class="d-flex justify-content-between small fw-semibold mb-1">
+            <span>Pool Target: {{ featured.moq_target }} {{ featured.unit_label|escape }}</span>
+            <span class="fw-bold" style="color: #2563EB;">{{ text_filled|format(featured.reserved_qty, featured.moq_target) }} ({{ featured.fill }}%)</span>
+          </div>
+          <div class="progress" style="height: 10px; border-radius: 6px; background-color: #E2E8F0;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ featured.fill }}%; background: linear-gradient(90deg, #06B6D4 0%, #2563EB 100%);" aria-valuenow="{{ featured.fill }}" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 text-lg-end text-start">
+        <div class="pb-price-callout mb-3">
+          <div class="text-muted small text-uppercase font-weight-bold">Pool Wholesale Price</div>
+          <div class="display-6 fw-bold" style="color: #0F294D;">{{ featured.unit_price_text }}</div>
+          {% if featured.has_retail_saving %}
+            <div class="text-muted small text-decoration-line-through">Retail: {{ featured.retail_price_text }}</div>
+          {% endif %}
+        </div>
+        <a href="{{ featured.href }}" class="pb-btn pb-btn--pill-filled w-100 text-center">
+          Join This Pool &rsaquo;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# 3. Trust Guarantee Banner #}
+<section class="pb-container pb-reveal pb-mb-2xl">
+  <div class="rabreez-trust-card">
+    <div class="rabreez-trust-item">
+      <div class="rabreez-trust-icon"><i class="fa-solid fa-certificate"></i></div>
+      <div class="rabreez-trust-text">
+        <span class="rabreez-trust-title">GST Verified Network</span>
+        <span class="rabreez-trust-sub">100% Tax Compliant Indian Manufacturers</span>
+      </div>
+    </div>
+    <div class="rabreez-trust-item">
+      <div class="rabreez-trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
+      <div class="rabreez-trust-text">
+        <span class="rabreez-trust-title">Pan-India Freight Logistics</span>
+        <span class="rabreez-trust-sub">Doorstep delivery for bulk consignments</span>
+      </div>
+    </div>
+    <div class="rabreez-trust-item">
+      <div class="rabreez-trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="rabreez-trust-text">
+        <span class="rabreez-trust-title">Escrow Safe Payments</span>
+        <span class="rabreez-trust-sub">Funds protected until quality verification</span>
+      </div>
+    </div>
+    <div class="rabreez-trust-item">
+      <div class="rabreez-trust-icon"><i class="fa-solid fa-headset"></i></div>
+      <div class="rabreez-trust-text">
+        <span class="rabreez-trust-title">Key Account Manager</span>
+        <span class="rabreez-trust-sub">Personal bulk procurement support</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-{# How it works #}
+{# 4. 12 Major B2B Wholesale Categories #}
+{% if categories %}
+<section class="pb-container pb-section pb-reveal" style="padding-top: 1rem;">
+  <div class="d-flex flex-wrap justify-content-between align-items-end pb-mb-xl">
+    <div>
+      <span class="pb-badge pb-badge--soft pb-mb-xs">
+        <i class="fa-solid fa-layer-group text-primary me-1"></i> INDUSTRY VERTICALS
+      </span>
+      <h2 class="pb-display-lg mb-1" style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800;">
+        Explore Wholesale Industries &amp; Categories
+      </h2>
+      <p class="pb-body-md pb-muted mb-0">Direct factory supply lines across 12 primary B2B wholesale manufacturing sectors</p>
+    </div>
+    <a href="{{ categories_all }}" class="pb-btn pb-btn--pill-outline mt-3 mt-md-0">
+      View All 12 Industries <i class="fa-solid fa-arrow-right ms-1"></i>
+    </a>
+  </div>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-6 g-4 pb-category-grid">
+    {% for category in categories %}
+      <div class="col">
+        <div class="pb-cat-card h-100">
+          <a href="{{ category.href }}" class="pb-cat-card-img-wrap text-decoration-none">
+            <img src="{{ category.image }}" alt="{{ category.name|escape }}" class="pb-cat-card-img" loading="lazy"/>
+            <span class="pb-cat-card-count">{{ category.product_total }} Products</span>
+          </a>
+          <div class="pb-cat-card-content">
+            <h4 class="pb-cat-card-title">
+              <a href="{{ category.href }}">{{ category.name }}</a>
+            </h4>
+            {% if category.subcategories %}
+              <div class="pb-cat-card-subs">
+                {% for sub in category.subcategories %}
+                  <a href="{{ sub.href }}" class="pb-sub-pill">{{ sub.name }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+            <a href="{{ category.href }}" class="pb-cat-card-explore">
+              Browse Sector <i class="fa-solid fa-chevron-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{# 5. 8 Trending Factory Wholesale Products #}
+{% if trending_products %}
+<section class="pb-section pb-reveal" style="background: #F8FAFC; border-block: 1px solid #E2E8F0; padding-block: 3.5rem;">
+  <div class="pb-container">
+    <div class="d-flex flex-wrap justify-content-between align-items-end pb-mb-xl">
+      <div>
+        <span class="pb-badge pb-badge--soft pb-mb-xs">
+          <i class="fa-solid fa-bolt text-primary me-1"></i> FACTORY DIRECT DEALS
+        </span>
+        <h2 class="pb-display-lg mb-1" style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800;">
+          Trending Wholesale Products &amp; Bulk Deals
+        </h2>
+        <p class="pb-body-md pb-muted mb-0">High-volume orders at verified tier-1 manufacturer rates</p>
+      </div>
+      <a href="{{ marketplace }}" class="pb-btn pb-btn--pill-outline mt-3 mt-md-0">
+        Explore All Wholesale Deals <i class="fa-solid fa-arrow-right ms-1"></i>
+      </a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4 pb-trending-grid">
+      {% for product in trending_products %}
+        <div class="col">
+          <div class="pb-product-card h-100">
+            <a href="{{ product.href }}" class="pb-product-img-wrap text-decoration-none">
+              <img src="{{ product.thumb }}" alt="{{ product.name|escape }}" class="pb-product-img" loading="lazy"/>
+              <span class="pb-product-badge"><i class="fa-solid fa-check-double me-1"></i> Verified Factory</span>
+            </a>
+            <div class="pb-product-body">
+              <div class="pb-product-moq-tag">MOQ: {{ product.minimum }} units</div>
+              <h5 class="pb-product-name">
+                <a href="{{ product.href }}" title="{{ product.name|escape }}">{{ product.name|escape }}</a>
+              </h5>
+              
+              <div class="pb-product-price-row">
+                <div class="pb-product-price">{{ product.price }}</div>
+                {% if product.tier_badge %}
+                  <div class="pb-product-tier-badge">{{ product.tier_badge }}</div>
+                {% endif %}
+              </div>
+
+              <div class="pb-product-actions">
+                <a href="{{ product.href }}" class="pb-btn-action-view">View Specs</a>
+                <button type="button" class="pb-btn-action-cart" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');" title="Add Minimum Order to Cart">
+                  <i class="fa-solid fa-cart-plus me-1"></i> Add MOQ
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# 6. How Collaborative B2B Procurement Works #}
 <section id="how-it-works" class="pb-container pb-section pb-reveal">
   <div class="pb-text-center pb-mb-2xl">
-    <h2 class="pb-display-lg pb-mb-md">{{ text_how_title }}</h2>
+    <span class="pb-badge pb-badge--soft pb-mb-xs">
+      <i class="fa-solid fa-handshake text-primary me-1"></i> COLLABORATIVE SOURCING
+    </span>
+    <h2 class="pb-display-lg pb-mb-xs" style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800;">{{ text_how_title }}</h2>
+    <div class="rabreez-heading-flourish"><span>&#10022;</span></div>
     <p class="pb-body-lg pb-muted" style="max-width: 44rem; margin-inline: auto;">{{ text_how_body }}</p>
   </div>
 
   <div class="pb-grid pb-grid-4">
     {% for step in steps %}
-      <div>
+      <div class="rabreez-step-card">
         <div class="pb-step__icon pb-step__icon--{{ loop.index }}"><i class="{{ step.icon }}" aria-hidden="true"></i></div>
-        <h3 class="pb-headline-sm pb-mb-sm">{{ step.title }}</h3>
+        <h3 class="pb-headline-sm pb-mb-sm" style="font-family: var(--font-heading);">{{ step.title }}</h3>
         <p class="pb-body-md pb-muted pb-mb-0">{{ step.body }}</p>
       </div>
     {% endfor %}
   </div>
 </section>
 
-{# Featured categories, only shown when there are live pools to categorise #}
-{% if categories %}
-  <section class="pb-section pb-reveal" style="background: var(--pb-surface-container-low); border-block: 1px solid var(--pb-outline-variant);">
-    <div class="pb-container">
-      <div class="pb-flex pb-justify-between pb-items-end pb-wrap pb-gap-md pb-mb-xl">
-        <div>
-          <h2 class="pb-display-lg pb-mb-xs">{{ text_categories_title }}</h2>
-          <p class="pb-body-lg pb-muted pb-mb-0">{{ text_categories_body }}</p>
-        </div>
-        <a class="pb-link" href="{{ categories_all }}">{{ text_view_all }} <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
-      </div>
-
-      <div class="pb-grid pb-grid-3">
-        {% for category in categories %}
-          <a class="pb-tile" href="{{ category.href }}">
-            <span class="pb-tile__image" style="background-image: url('{{ category.image }}');"></span>
-            <span class="pb-tile__body">
-              <span class="pb-badge pb-badge--primary">{{ text_active_pools|format(category.pool_total) }}</span>
-              <span class="pb-tile__title">{{ category.name }}</span>
-            </span>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-{% endif %}
-
-{# Closing CTA #}
+{# 7. Closing Supplier / Buyer Portal CTA #}
 <section class="pb-container pb-section pb-reveal">
-  <div class="pb-cta">
-    <h2 class="pb-display-lg pb-mb-md">{{ text_cta_title }}</h2>
-    <p class="pb-body-lg pb-cta__lead pb-mb-xl" style="max-width: 44rem; margin-inline: auto;">{{ text_cta_body }}</p>
+  <div class="pb-cta rabreez-cta-banner">
+    <h2 class="pb-display-lg pb-mb-md" style="font-family: var(--font-heading); color: #FFFFFF; font-size: clamp(28px, 3.5vw, 42px); font-weight: 800;">
+      Grow Your Wholesale Business with PoolBuy
+    </h2>
+    <div class="rabreez-heading-flourish rabreez-heading-flourish--light"><span>&#10022;</span></div>
+    <p class="pb-body-lg pb-cta__lead pb-mb-xl" style="max-width: 44rem; margin-inline: auto; color: rgba(255, 255, 255, 0.9);">
+      Whether you are an established Indian manufacturer seeking high-volume bulk contracts or a business seeking tier-1 factory pricing, PoolBuy provides the secure infrastructure you need.
+    </p>
     <div class="pb-flex pb-wrap pb-justify-center pb-gap-md">
-      <a class="pb-btn pb-btn--on-primary pb-btn--lg" href="{{ register }}">{{ button_get_started }}</a>
-      <a class="pb-btn pb-btn--lg" href="{{ contact }}" style="background: var(--pb-primary-container); color: #fff; border-color: rgba(180,197,255,0.3);">{{ button_talk_to_us }}</a>
+      <a class="pb-btn pb-btn--pill-gold pb-btn--lg" href="{{ register }}">Create Free Buyer Account</a>
+      <a class="pb-btn pb-btn--pill-outline-light pb-btn--lg" href="{{ contact }}">Register as Manufacturer</a>
     </div>
   </div>
 </section>

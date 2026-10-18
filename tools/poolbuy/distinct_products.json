@@ -1,0 +1,780 @@
+[
+  {
+    "id": "28",
+    "name": "Titan-X Professional Series 5HP Submersible Drainage Pump",
+    "model": "TX-5HP-PUMP",
+    "image": "catalog/poolbuy/prod_28.jpg",
+    "categories": [
+      "Commercial Equipment & Pumps"
+    ]
+  },
+  {
+    "id": "29",
+    "name": "Commercial Multistage High-Flow Water Filtration Vessels (Lot of 4)",
+    "model": "IGF-Q4-UNIT",
+    "image": "catalog/poolbuy/prod_29.jpg",
+    "categories": [
+      "Commercial Equipment & Pumps"
+    ]
+  },
+  {
+    "id": "31",
+    "name": "EliteFlow Filtration Pro-7 Commercial Pump",
+    "model": "EF-PRO7-PUMP",
+    "image": "catalog/poolbuy/prod_31.jpg",
+    "categories": [
+      "Commercial Equipment & Pumps"
+    ]
+  },
+  {
+    "id": "32",
+    "name": "CrystalPure Chlorine Tablets (25kg Pail)",
+    "model": "CP-CHLOR-25KG",
+    "image": "catalog/poolbuy/prod_32.jpg",
+    "categories": [
+      "Chemicals & Treatment"
+    ]
+  },
+  {
+    "id": "33",
+    "name": "Drop-Forged Heavy-Duty Scaffolding Swivel Coupler Clamps (Box of 25)",
+    "model": "HW-SCAF-SWIVEL",
+    "image": "catalog/poolbuy/prod_33.jpg",
+    "categories": [
+      "Hardware & Fasteners"
+    ]
+  },
+  {
+    "id": "34",
+    "name": "High-Tensile Grade 8.8 Hex Bolts, Nuts & Washers Kit (Bulk 500-Pack)",
+    "model": "HW-HEX-88-KIT",
+    "image": "catalog/poolbuy/prod_34.jpg",
+    "categories": [
+      "Hardware & Fasteners"
+    ]
+  },
+  {
+    "id": "35",
+    "name": "MasterPack 5-Ply Heavy Duty Corrugated Master Cartons (50-Pack)",
+    "model": "MP-5PLY-CARTON",
+    "image": "catalog/poolbuy/prod_35.jpg",
+    "categories": [
+      "Packaging & Logistics"
+    ]
+  },
+  {
+    "id": "36",
+    "name": "Ceramic Mosaic XL Pool & Architectural Tiles",
+    "model": "CM-XL-TILES",
+    "image": "catalog/poolbuy/prod_36.jpg",
+    "categories": [
+      "Building & Materials"
+    ]
+  },
+  {
+    "id": "40",
+    "name": "Galvanized Aircraft Grade Steel Wire Rope Reel (8mm x 100m Drum)",
+    "model": "HW-WIRE-ROPE",
+    "image": "catalog/poolbuy/prod_40.jpg",
+    "categories": [
+      "Hardware & Fasteners"
+    ]
+  },
+  {
+    "id": "41",
+    "name": "Medical Grade Borosilicate Glass Vials (Case of 1000)",
+    "model": "MG-VIALS-1000",
+    "image": "catalog/poolbuy/prod_41.jpg",
+    "categories": [
+      "Medical & Laboratory"
+    ]
+  },
+  {
+    "id": "42",
+    "name": "Heavyweight 240 GSM Combed Cotton Oversized T-Shirt Blanks",
+    "model": "TX-240-TSHIRT",
+    "image": "catalog/poolbuy/prod_42.jpg",
+    "categories": [
+      "Textiles & Apparel"
+    ]
+  },
+  {
+    "id": "43",
+    "name": "Heavyweight 400 GSM French Terry Wholesale Pullover Hoodies",
+    "model": "TX-400-HOODIE",
+    "image": "catalog/poolbuy/prod_43.jpg",
+    "categories": [
+      "Textiles & Apparel"
+    ]
+  },
+  {
+    "id": "44",
+    "name": "Rugged Ripstop Multi-Pocket Cargo Workwear Utility Trousers",
+    "model": "TX-RIP-CARGO",
+    "image": "catalog/poolbuy/prod_44.jpg",
+    "categories": [
+      "Textiles & Apparel"
+    ]
+  },
+  {
+    "id": "45",
+    "name": "High-Visibility Class 2 Reflective Safety Vests (Pack of 50)",
+    "model": "TX-HIVIS-VEST",
+    "image": "catalog/poolbuy/prod_45.jpg",
+    "categories": [
+      "Textiles & Apparel"
+    ]
+  },
+  {
+    "id": "46",
+    "name": "Commercial Cast Machine Stretch Film Wrap Rolls (4-Roll Case)",
+    "model": "PK-STRETCH-FILM",
+    "image": "catalog/poolbuy/prod_46.jpg",
+    "categories": [
+      "Packaging & Logistics"
+    ]
+  },
+  {
+    "id": "47",
+    "name": "Heat-Treated ISPM-15 Heavy-Duty Hardwood Euro Pallets (Lot of 20)",
+    "model": "PK-EURO-PALLET",
+    "image": "catalog/poolbuy/prod_47.jpg",
+    "categories": [
+      "Packaging & Logistics"
+    ]
+  },
+  {
+    "id": "48",
+    "name": "Commercial Heavy-Duty Two-Part Epoxy Floor Coating Kit (20L Drum Set)",
+    "model": "BM-EPOXY-20L",
+    "image": "catalog/poolbuy/prod_48.jpg",
+    "categories": [
+      "Building & Materials"
+    ]
+  },
+  {
+    "id": "49",
+    "name": "High-Purity Polyaluminium Chloride (PAC 30%) Water Clarifier (50kg Bag)",
+    "model": "CH-PAC-30",
+    "image": "catalog/poolbuy/prod_49.jpg",
+    "categories": [
+      "Chemicals & Treatment"
+    ]
+  },
+  {
+    "id": "51",
+    "name": "Medical Grade Powder-Free Sterile Nitrile Examination Gloves (Case of 1000)",
+    "model": "MD-NITRILE-1000",
+    "image": "catalog/poolbuy/prod_51.jpg",
+    "categories": [
+      "Medical & Laboratory"
+    ]
+  },
+  {
+    "id": "52",
+    "name": "925 Solid Sterling Silver Cuban Link Chain Necklaces (Wholesale Lot of 20)",
+    "model": "JW-SILV-CUBAN",
+    "image": "catalog/poolbuy/prod_52.jpg",
+    "categories": [
+      "Jewellery & Accessories"
+    ]
+  },
+  {
+    "id": "53",
+    "name": "18K Gold Vermeil Solitaire Moissanite Engagement & Cocktail Rings (Lot of 50)",
+    "model": "JW-MOISS-RING",
+    "image": "catalog/poolbuy/prod_53.jpg",
+    "categories": [
+      "Jewellery & Accessories"
+    ]
+  },
+  {
+    "id": "54",
+    "name": "Natural Semi-Precious Beaded Gemstone Stretch Bracelets (Assorted Lot of 100)",
+    "model": "JW-GEM-BRACELET",
+    "image": "catalog/poolbuy/prod_54.jpg",
+    "categories": [
+      "Jewellery & Accessories"
+    ]
+  },
+  {
+    "id": "61",
+    "name": "Titan-X 10HP Heavy Industrial Cast Iron Slurry Submersible Pump",
+    "model": "TX-10HP-SLURRY",
+    "image": "catalog/poolbuy/prod_61.jpg",
+    "categories": [
+      "Commercial Equipment & Pumps",
+      "Industrial Water Pumps & Submersibles"
+    ]
+  },
+  {
+    "id": "62",
+    "name": "Stainless Steel SS 316 Chemical Effluent Submersible Pump (2HP)",
+    "model": "SS-SUMP-2HP",
+    "image": "catalog/poolbuy/prod_62.jpg",
+    "categories": [
+      "Commercial Equipment & Pumps",
+      "Industrial Water Pumps & Submersibles"
+    ]
+  },
+  {
+    "id": "63",
+    "name": "Commercial FRP Composite Pressure Vessels 64-Inch with Top/Bottom Flanges",
+    "model": "FRP-VESSEL-64",
+    "image": "catalog/poolbuy/prod_63.jpg",
+    "categories": [
+      "Commercial Equipment & Pumps",
+      "Commercial Filtration & Vessel Systems"
+    ]
+  },
+  {
+    "id": "64",
+    "name": "High-Purity Graded Quartz Silica Sand Filter Media (Bulk 50kg Bags)",
+    "model": "QS-SAND-50KG",
+    "image": "catalog/poolbuy/prod_64.jpg",
+    "categories": [
+      "Commercial Equipment & Pumps",
+      "Commercial Filtration & Vessel Systems"
+    ]
+  },
+  {
+    "id": "65",
+    "name": "Vertical Multistage Inline Pressure Booster Pump 5HP Tri-Phase",
+    "model": "BOOST-VERT-5HP",
+    "image": "catalog/poolbuy/prod_65.jpg",
+    "categories": [
+      "Commercial Equipment & Pumps",
+      "Pressure Booster & Circulation Motors"
+    ]
+  },
+  {
+    "id": "66",
+    "name": "Trichloroisocyanuric Acid 90% (TCCA 90) Slow-Release Tablets (50kg Drum)",
+    "model": "TCCA-90-TABLETS",
+    "image": "catalog/poolbuy/prod_66.jpg",
+    "categories": [
+      "Chemicals & Treatment",
+      "Disinfection & Sanitizing Chemicals"
+    ]
+  },
+  {
+    "id": "67",
+    "name": "Commercial Sodium Hypochlorite 12.5% Industrial Liquid Sanitizer (50L Carboy)",
+    "model": "SOD-HYPO-50L",
+    "image": "catalog/poolbuy/prod_67.jpg",
+    "categories": [
+      "Chemicals & Treatment",
+      "Disinfection & Sanitizing Chemicals"
+    ]
+  },
+  {
+    "id": "68",
+    "name": "Liquid Ferric Sulfate Industrial Coagulant & Odor Control (50kg Pail)",
+    "model": "FERRIC-SULF-50KG",
+    "image": "catalog/poolbuy/prod_68.jpg",
+    "categories": [
+      "Chemicals & Treatment",
+      "Water Clarifiers & Coagulants"
+    ]
+  },
+  {
+    "id": "69",
+    "name": "Pure Sodium Carbonate Dense Soda Ash 99.2% pH Booster (50kg Bag)",
+    "model": "SODA-ASH-DENSE-50",
+    "image": "catalog/poolbuy/prod_69.jpg",
+    "categories": [
+      "Chemicals & Treatment",
+      "pH Buffers & Industrial Scale Inhibitors"
+    ]
+  },
+  {
+    "id": "70",
+    "name": "Organophosphonate Reverse Osmosis Antiscalant & Dispersant (25L Pail)",
+    "model": "SCALE-INHIB-25L",
+    "image": "catalog/poolbuy/prod_70.jpg",
+    "categories": [
+      "Chemicals & Treatment",
+      "pH Buffers & Industrial Scale Inhibitors"
+    ]
+  },
+  {
+    "id": "71",
+    "name": "Vitreous Cobalt Deep Blue Glass Mosaic Sheets (Box of 20 Sheets / 2 SqM)",
+    "model": "GLS-MOSAIC-DEEP",
+    "image": "catalog/poolbuy/prod_71.jpg",
+    "categories": [
+      "Building & Materials",
+      "Architectural Tiles & Glass Mosaics"
+    ]
+  },
+  {
+    "id": "72",
+    "name": "Commercial Anti-Slip R11 Porcelain Flooring Tiles 300x300mm (Box of 12)",
+    "model": "ANTI-SLIP-PORC-300",
+    "image": "catalog/poolbuy/prod_72.jpg",
+    "categories": [
+      "Building & Materials",
+      "Architectural Tiles & Glass Mosaics"
+    ]
+  },
+  {
+    "id": "73",
+    "name": "Solvent-Free Moisture-Tolerant Concrete Epoxy Primer (10L Set)",
+    "model": "EPOXY-PRIMER-10L",
+    "image": "catalog/poolbuy/prod_73.jpg",
+    "categories": [
+      "Building & Materials",
+      "Industrial Epoxy & Floor Coatings"
+    ]
+  },
+  {
+    "id": "74",
+    "name": "Submersible Heavy-Duty Polyurethane Joint Sealant 600ml Sausage (Box of 20)",
+    "model": "PU-JOINT-SEALANT",
+    "image": "catalog/poolbuy/prod_74.jpg",
+    "categories": [
+      "Building & Materials",
+      "Structural Sealants & Waterproofing"
+    ]
+  },
+  {
+    "id": "75",
+    "name": "Crystalline Capillary Slurry Waterproofing Compound (25kg Bag)",
+    "model": "CRYST-WATERPROOF-25",
+    "image": "catalog/poolbuy/prod_75.jpg",
+    "categories": [
+      "Structural Sealants & Waterproofing",
+      "Building & Materials"
+    ]
+  },
+  {
+    "id": "76",
+    "name": "7-Ply Triple-Wall Heavy Industrial Export Shipping Cartons (Bundle of 25)",
+    "model": "7PLY-EXPORT-BOX",
+    "image": "catalog/poolbuy/prod_76.jpg",
+    "categories": [
+      "Corrugated Shipping Boxes & Cartons",
+      "Packaging & Logistics"
+    ]
+  },
+  {
+    "id": "77",
+    "name": "Self-Locking Kraft Die-Cut Subscription Mailer Boxes (Pack of 100)",
+    "model": "DIE-CUT-MAILER-100",
+    "image": "catalog/poolbuy/prod_77.jpg",
+    "categories": [
+      "Packaging & Logistics",
+      "Corrugated Shipping Boxes & Cartons"
+    ]
+  },
+  {
+    "id": "78",
+    "name": "Heavy Duty Green Polyester (PET) Embossed Strapping Roll (16mm x 2000m)",
+    "model": "PET-STRAP-ROLL",
+    "image": "catalog/poolbuy/prod_78.jpg",
+    "categories": [
+      "Packaging & Logistics",
+      "Industrial Stretch Film & Strapping"
+    ]
+  },
+  {
+    "id": "79",
+    "name": "Cast Manual Hand Stretch Film Wrap 23 Micron (Carton of 6 Rolls)",
+    "model": "MANUAL-STRETCH-50",
+    "image": "catalog/poolbuy/prod_79.jpg",
+    "categories": [
+      "Packaging & Logistics",
+      "Industrial Stretch Film & Strapping"
+    ]
+  },
+  {
+    "id": "80",
+    "name": "CP-3 Heavy-Duty Chemical Grade Heat-Treated Wooden Pallets (Lot of 15)",
+    "model": "CP3-CHEM-PALLET",
+    "image": "catalog/poolbuy/prod_80.jpg",
+    "categories": [
+      "Packaging & Logistics",
+      "Wooden Pallets & Heavy Crates"
+    ]
+  },
+  {
+    "id": "81",
+    "name": "Heavyweight 280 GSM Pique Cotton Corporate Uniform Polo Shirts (Bulk Lot of 50)",
+    "model": "TX-280-POLO",
+    "image": "catalog/poolbuy/prod_81.jpg",
+    "categories": [
+      "Textiles & Apparel",
+      "Wholesale Blank T-Shirts & Hoodies"
+    ]
+  },
+  {
+    "id": "82",
+    "name": "Wholesale 320 GSM Heavyweight Terry Fleece Crewneck Sweatshirts (Pack of 30)",
+    "model": "TX-320-CREWNECK",
+    "image": "catalog/poolbuy/prod_82.jpg",
+    "categories": [
+      "Textiles & Apparel",
+      "Wholesale Blank T-Shirts & Hoodies"
+    ]
+  },
+  {
+    "id": "83",
+    "name": "Heavy 310 GSM 100% Cotton Drill Industrial Mechanic Boilersuit (Case of 20)",
+    "model": "TX-BOILERSUIT-HD",
+    "image": "catalog/poolbuy/prod_83.jpg",
+    "categories": [
+      "Textiles & Apparel",
+      "Industrial Workwear & Utility Pants"
+    ]
+  },
+  {
+    "id": "84",
+    "name": "Class 3 EN ISO 20471 Waterproof Breathable Hi-Vis Winter Parka (Pack of 15)",
+    "model": "TX-HIVIS-PARKA",
+    "image": "catalog/poolbuy/prod_84.jpg",
+    "categories": [
+      "Textiles & Apparel",
+      "High-Visibility & Safety Apparel"
+    ]
+  },
+  {
+    "id": "85",
+    "name": "Grade 10.9 Metric Hex Head Bolts Zinc Flake Coated M16x80mm (Box of 200)",
+    "model": "HD-BOLT-109-M16",
+    "image": "catalog/poolbuy/prod_85.jpg",
+    "categories": [
+      "Hardware & Fasteners",
+      "High-Tensile Hex Bolts & Structural Nuts"
+    ]
+  },
+  {
+    "id": "86",
+    "name": "High-Tensile Grade 10 Nylon Insert Lock Nuts M16 DIN 985 (Pack of 500)",
+    "model": "HD-NYLOC-NUT-M16",
+    "image": "catalog/poolbuy/prod_86.jpg",
+    "categories": [
+      "Hardware & Fasteners",
+      "High-Tensile Hex Bolts & Structural Nuts"
+    ]
+  },
+  {
+    "id": "87",
+    "name": "Drop-Forged Heavy Scaffold Double Right-Angle Couplers EN 74 (Box of 25)",
+    "model": "SCAF-RIGHT-ANGLE",
+    "image": "catalog/poolbuy/prod_87.jpg",
+    "categories": [
+      "Hardware & Fasteners",
+      "Scaffolding Clamps & Swivel Couplers"
+    ]
+  },
+  {
+    "id": "88",
+    "name": "Drop-Forged G-209 Galvanized Safety Bow Shackles 4.75 Ton WLL (Box of 10)",
+    "model": "RIG-BOW-SHACKLE",
+    "image": "catalog/poolbuy/prod_88.jpg",
+    "categories": [
+      "Hardware & Fasteners",
+      "Steel Wire Ropes & Rigging Hardware"
+    ]
+  },
+  {
+    "id": "89",
+    "name": "Stainless Steel SS 316 Jaw-and-Jaw Rigging Turnbuckles M20 (Box of 6)",
+    "model": "SS-TURNBUCKLE-M20",
+    "image": "catalog/poolbuy/prod_89.jpg",
+    "categories": [
+      "Hardware & Fasteners",
+      "Steel Wire Ropes & Rigging Hardware"
+    ]
+  },
+  {
+    "id": "90",
+    "name": "Anti-Fog Medical Grade Full Face Protection Shields (Box of 100)",
+    "model": "MD-SURG-SHIELD-100",
+    "image": "catalog/poolbuy/prod_90.jpg",
+    "categories": [
+      "Medical & Laboratory",
+      "Sterile Nitrile Gloves & PPE"
+    ]
+  },
+  {
+    "id": "91",
+    "name": "AAMI Level 3 Fluid-Resistant Sterile Isolation Gowns (Pack of 50)",
+    "model": "MD-ISOL-GOWN-50",
+    "image": "catalog/poolbuy/prod_91.jpg",
+    "categories": [
+      "Medical & Laboratory",
+      "Sterile Nitrile Gloves & PPE"
+    ]
+  },
+  {
+    "id": "92",
+    "name": "Graduated Borosilicate 3.3 Glass Test Tubes with Rim 16x150mm (Pack of 500)",
+    "model": "GLS-TESTTUBE-500",
+    "image": "catalog/poolbuy/prod_92.jpg",
+    "categories": [
+      "Medical & Laboratory",
+      "Borosilicate Glass Vials & Test Tubes"
+    ]
+  },
+  {
+    "id": "93",
+    "name": "Sterile Polypropylene Conical Centrifuge Tubes 50ml Leakproof (Case of 500)",
+    "model": "LAB-CENTRIFUGE-500",
+    "image": "catalog/poolbuy/prod_93.jpg",
+    "categories": [
+      "Medical & Laboratory",
+      "Specimen Containers & Lab Consumables"
+    ]
+  },
+  {
+    "id": "94",
+    "name": "Sterile Polystyrene Bacteriological Petri Dishes 90x15mm (Case of 500)",
+    "model": "LAB-PETRI-DISH-500",
+    "image": "catalog/poolbuy/prod_94.jpg",
+    "categories": [
+      "Medical & Laboratory",
+      "Specimen Containers & Lab Consumables"
+    ]
+  },
+  {
+    "id": "95",
+    "name": "Solid 925 Sterling Silver Italian Figaro Chain Necklaces (Wholesale Lot of 25)",
+    "model": "JW-SILV-FIGARO",
+    "image": "catalog/poolbuy/prod_95.jpg",
+    "categories": [
+      "Jewellery & Accessories",
+      "925 Sterling Silver Chains & Necklaces"
+    ]
+  },
+  {
+    "id": "96",
+    "name": "Diamond-Cut Solid 925 Sterling Silver Rope Chains 3.5mm (Lot of 30)",
+    "model": "JW-SILV-ROPE-CHAIN",
+    "image": "catalog/poolbuy/prod_96.jpg",
+    "categories": [
+      "Jewellery & Accessories",
+      "925 Sterling Silver Chains & Necklaces"
+    ]
+  },
+  {
+    "id": "97",
+    "name": "18K Gold Vermeil 925 Silver Chunky Waterdrop Hoop Earrings (Lot of 40 Pairs)",
+    "model": "JW-GOLD-VERMEIL-EARRING",
+    "image": "catalog/poolbuy/prod_97.jpg",
+    "categories": [
+      "Jewellery & Accessories",
+      "18K Gold Vermeil Moissanite Rings"
+    ]
+  },
+  {
+    "id": "98",
+    "name": "18K Gold Vermeil Full Eternity Moissanite Bands 2mm (Wholesale Lot of 30)",
+    "model": "JW-MOISS-ETERNITY",
+    "image": "catalog/poolbuy/prod_98.jpg",
+    "categories": [
+      "Jewellery & Accessories",
+      "18K Gold Vermeil Moissanite Rings"
+    ]
+  },
+  {
+    "id": "99",
+    "name": "Matte Black Onyx & Lava Rock 8mm Beaded Aromatherapy Bracelets (Lot of 100)",
+    "model": "JW-ONYX-BRACELET",
+    "image": "catalog/poolbuy/prod_99.jpg",
+    "categories": [
+      "Jewellery & Accessories",
+      "Natural Semi-Precious Beaded Bracelets"
+    ]
+  },
+  {
+    "id": "100",
+    "name": "Natural Deep Blue Lapis Lazuli Grade AAA 8mm Beaded Bracelets (Lot of 60)",
+    "model": "JW-LAPIS-BRACELET",
+    "image": "catalog/poolbuy/prod_100.jpg",
+    "categories": [
+      "Jewellery & Accessories",
+      "Natural Semi-Precious Beaded Bracelets"
+    ]
+  },
+  {
+    "id": "101",
+    "name": "Heavy Duty Drop-Forged Swivel Scaffolding Clamp Couplers EN 74-B (Box of 25)",
+    "model": "SCAF-SWIVEL-HEAVY",
+    "image": "catalog/poolbuy/prod_101.jpg",
+    "categories": [
+      "Hardware & Fasteners",
+      "Scaffolding Clamps & Swivel Couplers"
+    ]
+  },
+  {
+    "id": "102",
+    "name": "Industrial Chemical & Chemo-Tested Heavy Nitrile Gloves 6 Mil (Case of 1000)",
+    "model": "MD-EXAM-NITRILE-XL",
+    "image": "catalog/poolbuy/prod_102.jpg",
+    "categories": [
+      "Medical & Laboratory",
+      "Sterile Nitrile Gloves & PPE"
+    ]
+  },
+  {
+    "id": "103",
+    "name": "Tier-1 550W Monocrystalline Bifacial Solar Panels (Pallet of 31 Panels)",
+    "model": "SOL-550W-BIFACIAL",
+    "image": "catalog/poolbuy/prod_103.jpg",
+    "categories": [
+      "Electrical & Power Equipment",
+      "Industrial Solar Panels & On-Grid Inverters"
+    ]
+  },
+  {
+    "id": "104",
+    "name": "Heavy-Duty 125 kVA Silent Three-Phase Diesel Generator Set",
+    "model": "GEN-125KVA-SILENT",
+    "image": "catalog/poolbuy/prod_104.jpg",
+    "categories": [
+      "Electrical & Power Equipment",
+      "Heavy Industrial Diesel Generators & Alternators"
+    ]
+  },
+  {
+    "id": "105",
+    "name": "Industrial Step-Down Oil-Cooled Distribution Transformer 250kVA 11kV/415V",
+    "model": "TRF-250KVA-OIL",
+    "image": "catalog/poolbuy/prod_105.jpg",
+    "categories": [
+      "Electrical & Power Equipment",
+      "HT/LT Distribution Transformers & Switchgear"
+    ]
+  },
+  {
+    "id": "106",
+    "name": "Industrial 4-Pole 630A Air Circuit Breaker (ACB) Microprocessor Trip Unit",
+    "model": "ACB-630A-MICRO",
+    "image": "catalog/poolbuy/prod_106.jpg",
+    "categories": [
+      "Electrical & Power Equipment",
+      "HT/LT Distribution Transformers & Switchgear"
+    ]
+  },
+  {
+    "id": "107",
+    "name": "Multi-Speed Heavy Duty Tractor Rotary Tiller Rotavator 6-Feet (Gear Drive)",
+    "model": "AG-ROTA-6FT-HD",
+    "image": "catalog/poolbuy/prod_107.jpg",
+    "categories": [
+      "Agricultural & Farm Machinery",
+      "Tractor Rotary Tillers & Heavy Implements"
+    ]
+  },
+  {
+    "id": "108",
+    "name": "Commercial Pressure Compensating Drip Irrigation Lateral Pipe (16mm x 500m Coil)",
+    "model": "DRIP-LAT-16MM-500",
+    "image": "catalog/poolbuy/prod_108.jpg",
+    "categories": [
+      "Agricultural & Farm Machinery",
+      "Commercial Drip & Sprinkler Irrigation Systems"
+    ]
+  },
+  {
+    "id": "109",
+    "name": "Solar Powered High-Discharge Submersible Agricultural Borewell Pump 7.5HP",
+    "model": "AG-SOLAR-75HP",
+    "image": "catalog/poolbuy/prod_109.jpg",
+    "categories": [
+      "Agricultural & Farm Machinery",
+      "Solar Submersible Agricultural Water Pumps"
+    ]
+  },
+  {
+    "id": "110",
+    "name": "Heavy-Duty Heavy Disc Harrow 16-Disc Hydraulic Trailed Model for Tractors",
+    "model": "AG-DISC-HARROW-16",
+    "image": "catalog/poolbuy/prod_110.jpg",
+    "categories": [
+      "Agricultural & Farm Machinery",
+      "Tractor Rotary Tillers & Heavy Implements"
+    ]
+  },
+  {
+    "id": "111",
+    "name": "UL-Listed Commercial FM-200 Clean Agent Automatic Fire Suppression System",
+    "model": "FIRE-FM200-SYS",
+    "image": "catalog/poolbuy/prod_111.jpg",
+    "categories": [
+      "Industrial Safety & Security Systems",
+      "Automatic Fire Suppression Systems & Extinguishers"
+    ]
+  },
+  {
+    "id": "112",
+    "name": "EN 361 Certified Full Body Fall Arrest Safety Harness with Shock Absorbing Lanyard (Box of 10)",
+    "model": "SAFE-HARNESS-EN361",
+    "image": "catalog/poolbuy/prod_112.jpg",
+    "categories": [
+      "Industrial Safety & Security Systems",
+      "Full Body Fall Protection Safety Harnesses"
+    ]
+  },
+  {
+    "id": "113",
+    "name": "Multi-Gas Portable Industrial Confined Space Detector 4-Gas (LEL/O2/CO/H2S)",
+    "model": "GAS-DET-4WAY-PRO",
+    "image": "catalog/poolbuy/prod_113.jpg",
+    "categories": [
+      "Commercial CCTV Surveillance & Access Control",
+      "Industrial Safety & Security Systems"
+    ]
+  },
+  {
+    "id": "114",
+    "name": "Commercial 32-Channel 4K NVR Industrial IP Security Camera System with PoE",
+    "model": "CCTV-32CH-4K-POE",
+    "image": "catalog/poolbuy/prod_114.jpg",
+    "categories": [
+      "Industrial Safety & Security Systems",
+      "Commercial CCTV Surveillance & Access Control"
+    ]
+  },
+  {
+    "id": "115",
+    "name": "Heavy Duty SS 304 4-Burner Commercial Gas Range with Integrated Under-Oven",
+    "model": "KIT-4BURN-RANGE-SS",
+    "image": "catalog/poolbuy/prod_115.jpg",
+    "categories": [
+      "Commercial Kitchen & Hospitality Supplies",
+      "Commercial Heavy-Duty SS 304 Cooking Ranges"
+    ]
+  },
+  {
+    "id": "116",
+    "name": "Commercial Hood-Type High Temperature Sanitizing Pass-Through Dishwasher (60 Racks/Hr)",
+    "model": "DISH-HOOD-60RACK",
+    "image": "catalog/poolbuy/prod_116.jpg",
+    "categories": [
+      "Commercial Kitchen & Hospitality Supplies",
+      "Automatic High-Capacity Commercial Dishwashers"
+    ]
+  },
+  {
+    "id": "117",
+    "name": "Commercial 3-Tier Heated Countertop Buffet Food Display Warmer SS 304 (Curved Glass)",
+    "model": "WARM-BUFFET-3TIER",
+    "image": "catalog/poolbuy/prod_117.jpg",
+    "categories": [
+      "Commercial Kitchen & Hospitality Supplies",
+      "Commercial Heavy-Duty SS 304 Cooking Ranges"
+    ]
+  },
+  {
+    "id": "118",
+    "name": "100% Ring-Spun Egyptian Cotton 600 GSM Luxury Hotel Bath Towels (Wholesale Bale of 50)",
+    "model": "HOSP-TOWEL-600GSM",
+    "image": "catalog/poolbuy/prod_118.jpg",
+    "categories": [
+      "Commercial Kitchen & Hospitality Supplies",
+      "Wholesale Luxury Hotel Linens & Bath Towels"
+    ]
+  }
+]

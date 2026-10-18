@@ -197,6 +197,8 @@ class Pool extends \Opencart\System\Engine\Controller {
 			'limit'            => $limit ?? self::RAIL_LIMIT
 		]);
 
+		$this->model_extension_poolbuy_poolbuy_pool->primeTiers(array_column($rows, 'pool_id'));
+
 		$pools = [];
 
 		foreach ($rows as $row) {
@@ -364,6 +366,8 @@ class Pool extends \Opencart\System\Engine\Controller {
 
 		$results = $this->model_extension_poolbuy_poolbuy_pool->getPools($query);
 		$total = $this->model_extension_poolbuy_poolbuy_pool->getTotalPools($query);
+
+		$this->model_extension_poolbuy_poolbuy_pool->primeTiers(array_column($results, 'pool_id'));
 
 		$data['pools'] = [];
 

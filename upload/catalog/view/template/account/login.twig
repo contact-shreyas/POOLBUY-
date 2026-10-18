@@ -1,5 +1,5 @@
 {{ header }}
-<div id="account-login" class="container">
+<div id="account-login" class="pb-container py-4">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
       <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
@@ -16,21 +16,49 @@
     <div id="content" class="col">
       {{ content_top }}
       <div class="row">
-        <div class="col mb-3">
-          <div class="border rounded p-3 d-flex flex-column h-100">
-            <h2>{{ text_new_customer }}</h2>
-            <p><strong>{{ text_register }}</strong></p>
-            <p>{{ text_register_account }}</p>
-            <div class="text-end">
-              <a href="{{ register }}" class="btn btn-primary">{{ button_continue }}</a>
+        <div class="col-lg-6 mb-3">
+          <div class="border rounded p-4 d-flex flex-column h-100 bg-white shadow-sm" style="border-radius: 14px !important;">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge" style="background: #0F294D; color: #FFFFFF; font-size: 0.75rem;"><i class="fa-solid fa-building me-1"></i> Corporate Buyer</span>
+              <span class="badge bg-light text-dark border" style="font-size: 0.75rem;"><i class="fa-solid fa-industry me-1 text-primary"></i> Manufacturer</span>
+            </div>
+            <h2 class="h4 fw-bold mb-2">New to PoolBuy Wholesale?</h2>
+            <p class="text-muted small mb-3">Create a verified corporate account to access manufacturer factory pricing and collaborative procurement pools.</p>
+            
+            <div class="d-flex flex-column gap-2 mb-4" style="font-size: 0.85rem;">
+              <div class="d-flex align-items-center gap-2 text-dark">
+                <i class="fa-solid fa-circle-check text-success"></i> <strong>100% GST ITC Invoicing:</strong> Official B2B tax credits on all orders
+              </div>
+              <div class="d-flex align-items-center gap-2 text-dark">
+                <i class="fa-solid fa-circle-check text-success"></i> <strong>Collaborative Pools:</strong> Pool volume with pan-India buyers for Tier-1 rates
+              </div>
+              <div class="d-flex align-items-center gap-2 text-dark">
+                <i class="fa-solid fa-circle-check text-success"></i> <strong>Verified Freight:</strong> Inspected doorstep commercial dispatch
+              </div>
+            </div>
+
+            <div class="mt-auto pt-2">
+              <a href="{{ register }}" class="pb-btn pb-btn--pill-outline text-decoration-none d-inline-block w-100 text-center py-2 fw-semibold">
+                Register Corporate Account &rsaquo;
+              </a>
             </div>
           </div>
         </div>
-        <div class="col mb-3">
-          <div class="border rounded p-3 d-flex flex-column h-100">
+        <div class="col-lg-6 mb-3">
+          <div class="border rounded p-4 d-flex flex-column h-100 bg-white shadow-sm" style="border-radius: 14px !important;">
+            <div class="p-3 mb-3 rounded border" style="background: #F8FAFC; border-color: #E2E8F0 !important;">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-success" style="font-size: 1.2rem;"></i>
+                <div>
+                  <div class="fw-bold text-dark small" style="font-size: 0.82rem;">Authorized Corporate &amp; Supplier Portal</div>
+                  <div class="text-muted" style="font-size: 0.74rem;">Encrypted 256-bit SSL session &bull; Direct GSTIN verification</div>
+                </div>
+              </div>
+            </div>
+
             <form id="form-login" action="{{ login }}" method="post" data-oc-toggle="ajax">
-              <h2>{{ text_returning_customer }}</h2>
-              <p><strong>{{ text_i_am_returning_customer }}</strong></p>
+              <h2 class="h4 fw-bold mb-2">{{ text_returning_customer }}</h2>
+              <p class="text-muted small mb-3">Sign in with your registered corporate email &amp; password</p>
               <div class="mb-3">
                 <label for="input-email" class="col-form-label">{{ entry_email }}</label>
                 <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control"/>

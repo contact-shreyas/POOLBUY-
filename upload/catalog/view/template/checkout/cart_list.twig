@@ -87,10 +87,14 @@
     </div>
   {% endif %}
 
-  <br/>
+  <div class="p-3 my-3 rounded bg-light border d-flex flex-wrap align-items-center justify-content-between gap-2" style="font-size: 0.82rem; border-color: #E2E8F0 !important;">
+    <div><i class="fa-solid fa-file-invoice text-success me-1"></i> <strong>18% GST Input Tax Credit (ITC)</strong> eligible tax invoice provided on all commercial consignments.</div>
+    <div class="text-muted"><i class="fa-solid fa-truck-fast text-primary me-1"></i> Pan-India E-Way Bill Commercial Freight</div>
+  </div>
+
   <div class="row">
-    <div class="col"><a href="{{ continue }}" class="btn btn-light">{{ button_shopping }}</a></div>
-    <div class="col text-end"><a href="{{ checkout }}" class="btn btn-primary">{{ button_checkout }}</a></div>
+    <div class="col"><a href="{{ continue }}" class="btn btn-outline-secondary">{{ button_shopping }}</a></div>
+    <div class="col text-end"><a href="{{ checkout }}" class="btn btn-primary" style="background: #0F294D; border-color: #0F294D;"><i class="fa-solid fa-lock me-1"></i> Proceed to Corporate Checkout</a></div>
   </div>
 {% else %}
   <h1>{{ heading_title }}</h1>

@@ -31,24 +31,29 @@ $exists = Get-OcSqlInt "SELECT COUNT(*) FROM oc_currency WHERE code='INR';"
 if ($exists -eq 0) {
     Invoke-OcSql @"
 INSERT INTO oc_currency (title, code, symbol_left, symbol_right, decimal_place, value, status, date_modified)
-VALUES ('Indian Rupee', 'INR', '$rupee', '', 2, 95.11028150, 1, NOW());
+VALUES ('Indian Rupee', 'INR', UNHEX('E282B9'), '', 2, 95.11028150, 1, NOW());
 "@
     Write-Host "  created the INR currency row"
 } else {
     Write-Host "  INR currency row already present"
 }
 
-# Enable it, and make sure the symbol is the rupee sign on the left with two decimals.
-# A disabled currency is silently dropped from the switcher and from currency
-# formatting, which is the actual bug being fixed here.
+# Enable INR as sole primary base currency, disable other currencies, and point store default to INR.
 Invoke-OcSql @"
+UPDATE oc_currency SET status = 0 WHERE code != 'INR';
 UPDATE oc_currency
 SET status = 1,
-    symbol_left = '$rupee',
+    value = 1.00000000,
+    symbol_left = UNHEX('E282B9'),
     symbol_right = '',
     decimal_place = 2,
     date_modified = NOW()
 WHERE code = 'INR';
+UPDATE oc_setting SET value = 'INR' WHERE code = 'config' AND $([char]96)key$([char]96) = 'config_currency';
+UPDATE oc_setting SET value = '0' WHERE code = 'config' AND $([char]96)key$([char]96) = 'config_currency_auto';
+UPDATE oc_setting SET value = 'INR' WHERE code = 'module_poolbuy' AND $([char]96)key$([char]96) = 'module_poolbuy_currency_code';
+UPDATE oc_setting SET value = UNHEX('E282B9') WHERE code = 'module_poolbuy' AND $([char]96)key$([char]96) = 'module_poolbuy_currency_symbol';
+UPDATE oc_poolbuy_pool SET currency_code = 'INR';
 "@
 
 # OpenCart caches the currency list, so a newly enabled currency will not appear in

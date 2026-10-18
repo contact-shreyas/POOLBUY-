@@ -2,13 +2,19 @@
 
   <footer class="pb-footer">
     <div class="pb-container">
-      <div class="pb-footer__grid">
+      <div class="pb-footer__grid rabreez-footer-grid">
         <div>
           <div class="pb-flex pb-items-center pb-gap-sm pb-mb-md">
-            <i class="fa-solid fa-diagram-project pb-primary-text" style="font-size: 22px;" aria-hidden="true"></i>
-            <span class="pb-headline-sm pb-primary-text">PoolBuy</span>
+            <i class="fa-solid fa-diagram-project pb-primary-text" style="font-size: 22px; color: #38BDF8;" aria-hidden="true"></i>
+            <span class="pb-headline-sm" style="font-family: var(--font-heading); color: #FFFFFF; font-weight: 700;">PoolBuy</span>
           </div>
-          <p class="pb-body-md pb-muted pb-mb-0">The global standard for collaborative wholesale procurement.</p>
+          <p class="pb-body-md pb-muted pb-mb-md">The global standard for collaborative wholesale procurement.</p>
+          <div class="rabreez-social-links">
+            <a href="#" class="rabreez-social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="rabreez-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="rabreez-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="rabreez-social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
         </div>
 
         <div>
@@ -43,6 +49,22 @@
             {% endif %}
           </ul>
         </div>
+
+        <div>
+          <h2 class="pb-footer__title">We Accept</h2>
+          <div class="rabreez-payment-badges">
+            <span class="rabreez-pay-badge">VISA</span>
+            <span class="rabreez-pay-badge">Mastercard</span>
+            <span class="rabreez-pay-badge">UPI</span>
+            <span class="rabreez-pay-badge">RuPay</span>
+            <span class="rabreez-pay-badge">NetBanking</span>
+          </div>
+          <div class="rabreez-trust-checks">
+            <div class="rabreez-check-row"><i class="fa-solid fa-check"></i> Secure Payments</div>
+            <div class="rabreez-check-row"><i class="fa-solid fa-check"></i> Verified Suppliers</div>
+            <div class="rabreez-check-row"><i class="fa-solid fa-check"></i> On-time Delivery</div>
+          </div>
+        </div>
       </div>
 
       <div class="pb-footer__bottom">
@@ -52,6 +74,10 @@
     </div>
   </footer>
 </div>
+
+<a href="{{ contact }}" class="rabreez-floating-wa" title="Quick Assistance" aria-label="Quick Assistance">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 
 {# Mobile bottom navigation, hidden from 992px up by the stylesheet #}
 <nav class="pb-bottom-nav" aria-label="Mobile">

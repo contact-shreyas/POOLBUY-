@@ -62,16 +62,100 @@ class Landing extends \Opencart\System\Engine\Controller {
 
 		$data['has_pools'] = $stats['active_pools'] > 0;
 
-		// ---- Featured categories with live pool counts
-		$data['categories'] = [];
+		$data['search_action'] = $this->url->link('product/search', 'language=' . $this->config->get('config_language'));
 
-		foreach ($this->model_extension_poolbuy_poolbuy_pool->getCategoryPoolCounts(3) as $category) {
-			$data['categories'][] = [
-				'name'       => $category['name'],
-				'pool_total' => (int)$category['pool_total'],
-				'image'      => $this->thumb((string)$category['image'], 640, 400),
-				'href'       => $this->url->link('extension/poolbuy/pool', 'language=' . $this->config->get('config_language') . '&filter_category_id=' . (int)$category['category_id'])
-			];
+		$cache_lang = (int)$this->config->get('config_language_id');
+		$cache_curr = (string)$this->session->data['currency'];
+		$cat_cache_key = 'poolbuy.landing.categories.' . $cache_lang;
+		$trend_cache_key = 'poolbuy.landing.trending.' . $cache_lang . '.' . $cache_curr;
+
+		$categories_cached = $this->cache->get($cat_cache_key);
+
+		if (!empty($categories_cached)) {
+			$data['categories'] = $categories_cached;
+		} else {
+			// ---- All 12 Core B2B Wholesale Categories with Subcategories
+			$this->load->model('catalog/category');
+			$this->load->model('catalog/product');
+
+			$data['categories'] = [];
+			$parent_categories = $this->model_catalog_category->getCategories(0);
+
+			foreach ($parent_categories as $cat) {
+				$cat_id = (int)$cat['category_id'];
+				$children = $this->model_catalog_category->getCategories($cat_id);
+
+				$sub_list = [];
+				foreach (array_slice($children, 0, 3) as $child) {
+					$sub_list[] = [
+						'name' => $child['name'],
+						'href' => $this->url->link('product/category', 'language=' . $this->config->get('config_language') . '&path=' . $cat_id . '_' . $child['category_id'])
+					];
+				}
+
+				$filter_data = [
+					'filter_category_id'  => $cat_id,
+					'filter_sub_category' => true
+				];
+				$prod_total = $this->model_catalog_product->getTotalProducts($filter_data);
+
+				$img = !empty($cat['image']) ? $cat['image'] : 'catalog/poolbuy/cat_machinery.jpg';
+
+				$data['categories'][] = [
+					'category_id'   => $cat_id,
+					'name'          => $cat['name'],
+					'image'         => $this->thumb($img, 480, 360),
+					'subcategories' => $sub_list,
+					'product_total' => $prod_total,
+					'href'          => $this->url->link('product/category', 'language=' . $this->config->get('config_language') . '&path=' . $cat_id)
+				];
+			}
+
+			$this->cache->set($cat_cache_key, $data['categories']);
+		}
+
+		$trending_cached = $this->cache->get($trend_cache_key);
+
+		if (!empty($trending_cached)) {
+			$data['trending_products'] = $trending_cached;
+		} else {
+			if (!isset($this->model_catalog_product)) {
+				$this->load->model('catalog/product');
+			}
+
+			// ---- 8 Trending Factory Wholesale Deals
+			$data['trending_products'] = [];
+			$products = $this->model_catalog_product->getProducts([
+				'sort'  => 'p.date_added',
+				'order' => 'DESC',
+				'start' => 0,
+				'limit' => 8
+			]);
+
+			foreach ($products as $p) {
+				$pid = (int)$p['product_id'];
+				$img = !empty($p['image']) ? $p['image'] : 'placeholder.png';
+
+				$discount_query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "product_discount` WHERE `product_id` = '" . $pid . "' ORDER BY `quantity` ASC LIMIT 1");
+				$tier_badge = '';
+				if ($discount_query->num_rows) {
+					$tier_qty = (int)$discount_query->row['quantity'];
+					$tier_price = $this->currency->format((float)$discount_query->row['price'], $this->session->data['currency']);
+					$tier_badge = 'Tier: ' . $tier_qty . '+ @ ' . $tier_price;
+				}
+
+				$data['trending_products'][] = [
+					'product_id' => $pid,
+					'name'       => $p['name'],
+					'thumb'      => $this->thumb($img, 360, 360),
+					'price'      => $this->currency->format((float)$p['price'], $this->session->data['currency']),
+					'minimum'    => max(1, (int)$p['minimum']),
+					'tier_badge' => $tier_badge,
+					'href'       => $this->url->link('product/product', 'language=' . $this->config->get('config_language') . '&product_id=' . $pid)
+				];
+			}
+
+			$this->cache->set($trend_cache_key, $data['trending_products']);
 		}
 
 		// ---- How it works. Icons are FontAwesome equivalents of the design's

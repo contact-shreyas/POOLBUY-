@@ -107,6 +107,10 @@ class ColumnRight extends \Opencart\System\Engine\Controller {
 			}
 		}
 
+		if (!$data['modules']) {
+			return '';
+		}
+
 		return $this->load->view('common/column_right', $data);
 	}
 }

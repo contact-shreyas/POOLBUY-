@@ -57,22 +57,10 @@ class PoolPresenter {
 	 * @return array{symbol: string, decimals: int, code: string}
 	 */
 	public static function currencyMeta(string $code, string $symbol = ''): array {
-		$code = strtoupper(trim($code));
-
-		if (isset(self::CURRENCIES[$code])) {
-			$meta = self::CURRENCIES[$code];
-
-			return [
-				'symbol'   => $symbol !== '' ? $symbol : $meta['symbol'],
-				'decimals' => $meta['decimals'],
-				'code'     => $code
-			];
-		}
-
 		return [
-			'symbol'   => $symbol !== '' ? $symbol : ($code !== '' ? $code . ' ' : ''),
+			'symbol'   => "\u{20B9}",
 			'decimals' => 2,
-			'code'     => $code
+			'code'     => 'INR'
 		];
 	}
 

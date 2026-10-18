@@ -27,8 +27,8 @@ class Currency extends \Opencart\System\Engine\Controller {
 			$code = $this->request->cookie['currency'];
 		}
 
-		if (!array_key_exists($code, $currencies)) {
-			$code = $this->config->get('config_currency');
+		if (!array_key_exists($code, $currencies) || $code !== 'INR') {
+			$code = 'INR';
 		}
 
 		if (!isset($this->session->data['currency']) || $this->session->data['currency'] != $code) {

@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']          = 'PoolBuy Wholesale';
+$_['heading_title']          = 'PoolBuy';
 
 // Text
 $_['text_extension']         = 'Extensions';

@@ -49,3 +49,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=opencart
       - POSTGRES_DB=opencart
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate --url http://opencart:80
+    depends_on:
+      - opencart
+    restart: unless-stopped
+

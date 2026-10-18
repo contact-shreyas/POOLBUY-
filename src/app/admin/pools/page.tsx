@@ -61,13 +61,12 @@ export default function AdminPoolsPage() {
                     </td>
                     <td className="py-3.5 px-3">
                       <span
-                        className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
-                          p.status === 'reached'
+                        className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${p.status === 'reached'
                             ? 'bg-emerald-100 text-emerald-800'
                             : p.status === 'active'
-                            ? 'bg-blue-100 text-blue-800'
-                            : 'bg-slate-200 text-slate-700'
-                        }`}
+                              ? 'bg-blue-100 text-blue-800'
+                              : 'bg-slate-200 text-slate-700'
+                          }`}
                       >
                         {p.status}
                       </span>

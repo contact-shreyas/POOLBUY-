@@ -1,5 +1,5 @@
 {{ header }}
-<div id="product-info" class="container">
+<div id="product-info" class="pb-container py-4">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
       <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
@@ -38,45 +38,104 @@
             {% if reward %}
               <li>{{ text_reward }} {{ reward }}</li>
             {% endif %}
-            <li>{{ text_stock }} {{ stock }}</li>
           </ul>
+
+          <div class="pb-pdp-badges-row mb-3 d-flex flex-wrap gap-2">
+            <span class="pb-stock-pill in-stock"><span class="pb-pulse-dot"></span> {{ text_stock }} {{ stock }} &bull; Dispatches in 24&ndash;48h</span>
+            <span class="pb-verified-mfg-badge"><i class="fa-solid fa-circle-check"></i> Verified Manufacturer Direct</span>
+          </div>
+
           {% if review_status %}
-            <div class="rating">
-              <p>
-                {% for i in 1..5 %}
-                  {% if rating < i %}
-                    <span class="fa-stack"><i class="fa-regular fa-star fa-stack-1x"></i></span>
-                  {% else %}
-                    <span class="fa-stack"><i class="fa-solid fa-star fa-stack-1x"></i><i class="fa-regular fa-star fa-stack-1x"></i></span>
-                  {% endif %}
-                {% endfor %}
-                <a href="#" onclick="$('a[href=\'#tab-review\']').tab('show'); return false;">{{ text_reviews }}</a> / <a href="#" onclick="$('a[href=\'#tab-review\']').tab('show'); return false;">{{ text_write }}</a></p>
+            <div class="rating pb-pdp-rating mb-3">
+              <p class="mb-0 d-flex align-items-center gap-2">
+                <span class="pb-stars-wrap">
+                  {% for i in 1..5 %}
+                    {% if rating < i %}
+                      <i class="fa-regular fa-star"></i>
+                    {% else %}
+                      <i class="fa-solid fa-star text-gold"></i>
+                    {% endif %}
+                  {% endfor %}
+                </span>
+                <a href="#" onclick="$('a[href=\'#tab-review\']').tab('show'); return false;" class="pb-review-link">{{ text_reviews }}</a> &bull;
+                <a href="#" onclick="$('a[href=\'#tab-review\']').tab('show'); return false;" class="pb-write-link">{{ text_write }}</a>
+              </p>
             </div>
           {% endif %}
+
           {% if price %}
-            <ul class="list-unstyled">
+            <div class="pb-pdp-price-box mb-3">
               {% if not special %}
-                <li><h2><span class="price-new">{{ price }}</span></h2></li>
+                <div class="d-flex align-items-baseline gap-2">
+                  <span class="pb-pdp-price">{{ price }}</span>
+                  <span class="pb-tax-note">Inclusive of all taxes</span>
+                </div>
               {% else %}
-                <li><span class="price-old">{{ price }}</span></li>
-                <li><h2><span class="price-new">{{ special }}</span></h2></li>
+                <div class="d-flex align-items-baseline gap-2">
+                  <span class="pb-pdp-price">{{ special }}</span>
+                  <span class="pb-pdp-original-price">{{ price }}</span>
+                  <span class="pb-save-badge">Special Offer</span>
+                </div>
               {% endif %}
               {% if tax %}
-                <li>{{ text_tax }} {{ tax }}</li>
+                <div class="pb-pdp-tax-info"><i class="fa-solid fa-file-invoice-dollar"></i> Ex Tax: {{ tax }} &bull; <strong>18% GST Input Credit Eligible</strong></div>
               {% endif %}
               {% if points %}
-                <li>{{ text_points }} {{ points }}</li>
+                <div class="pb-pdp-points">{{ text_points }} {{ points }}</div>
               {% endif %}
               {% if discounts %}
-                <li>
-                  <hr>
-                </li>
-                {% for discount in discounts %}
-                  <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
-                {% endfor %}
+                <div class="pb-pdp-discounts mt-2">
+                  <div class="fw-bold text-muted small mb-1">Volume Discounts Available:</div>
+                  <ul class="list-unstyled mb-0">
+                    {% for discount in discounts %}
+                      <li class="small"><i class="fa-solid fa-tag text-gold"></i> {{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
               {% endif %}
-            </ul>
+            </div>
           {% endif %}
+
+          {# B2B Wholesale Volume Tier Matrix #}
+          <div class="pb-tier-matrix-card mb-4" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 14px 16px;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="fw-bold text-uppercase" style="font-size: 0.78rem; letter-spacing: 0.05em; color: #0F294D;">
+                <i class="fa-solid fa-cubes-stacked me-1 text-primary"></i> Wholesale Volume Tier Pricing
+              </span>
+              <span class="badge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #DBEAFE; font-size: 0.72rem;">
+                <i class="fa-solid fa-file-invoice me-1"></i> 18% GST ITC Eligible
+              </span>
+            </div>
+
+            <div class="row g-2 text-center">
+              <div class="col-4">
+                <div class="p-2 bg-white rounded border h-100" style="border-color: #E2E8F0 !important;">
+                  <div class="text-muted" style="font-size: 0.72rem; font-weight: 600;">MOQ Batch</div>
+                  <div class="fw-bold" style="font-size: 0.85rem; color: #475569;">{{ minimum }}–49 Units</div>
+                  <div class="fw-bold text-dark mt-1" style="font-size: 1.05rem;">{{ special ?: price }}</div>
+                  <div class="text-muted" style="font-size: 0.68rem;">Base Wholesale</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-2 bg-white rounded border h-100 position-relative" style="border-color: #93C5FD !important; background: #F0F7FF !important;">
+                  <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary" style="font-size: 8px;">Popular</span>
+                  <div class="text-primary" style="font-size: 0.72rem; font-weight: 700;">Wholesale Lot</div>
+                  <div class="fw-bold" style="font-size: 0.85rem; color: #1E40AF;">50–199 Units</div>
+                  <div class="fw-bold text-primary mt-1" style="font-size: 1.05rem;">Save 15%</div>
+                  <div class="text-success fw-semibold" style="font-size: 0.68rem;">Commercial Rate</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-2 bg-white rounded border h-100" style="border-color: #CBD5E1 !important;">
+                  <div class="text-dark" style="font-size: 0.72rem; font-weight: 700;">Factory Consignment</div>
+                  <div class="fw-bold" style="font-size: 0.85rem; color: #0F172A;">200+ Units</div>
+                  <div class="fw-bold text-success mt-1" style="font-size: 1.05rem;">Save 28%</div>
+                  <div class="text-success fw-semibold" style="font-size: 0.68rem;">Direct OEM Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <form method="post" data-oc-toggle="ajax">
             <div class="btn-group">
               <button type="submit" formaction="{{ wishlist_add }}" data-bs-toggle="tooltip" class="btn btn-light btn-lg" title="{{ button_wishlist }}"><i class="fa-solid fa-heart"></i></button>
@@ -224,14 +283,60 @@
                   <div id="error-subscription" class="invalid-feedback"></div>
                 </div>
               {% endif %}
-              <div class="mb-3">
-                <div class="input-group">
-                  <div class="input-group-text">{{ entry_qty }}</div>
-                  <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control"/>
-                  <button type="submit" id="button-cart" class="btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
+              <div class="pb-pdp-buy-box mb-4">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <label class="form-label mb-0 fw-bold">{{ entry_qty }}:</label>
+                  <div class="pb-stepper">
+                    <button type="button" class="pb-stepper-btn" onclick="var q=document.getElementById('input-quantity'); var v=parseInt(q.value)||1; if(v>{{ minimum }}){q.value=v-1;}">&minus;</button>
+                    <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control pb-stepper-input"/>
+                    <button type="button" class="pb-stepper-btn" onclick="var q=document.getElementById('input-quantity'); var v=parseInt(q.value)||1; q.value=v+1;">&plus;</button>
+                  </div>
                 </div>
+
+                <div class="pb-pdp-action-buttons d-flex flex-column flex-sm-row gap-2 mb-2">
+                  <button type="submit" id="button-cart" class="btn pb-btn-cart-pill flex-grow-1"><i class="fa-solid fa-cart-shopping me-1"></i> Add to Bulk Order</button>
+                  <button type="button" id="button-buynow" class="btn pb-btn-buynow-pill flex-grow-1" onclick="$('#button-cart').click(); setTimeout(function(){ window.location = 'index.php?route=checkout/checkout'; }, 400);"><i class="fa-solid fa-bolt me-1"></i> Direct Bulk PO</button>
+                </div>
+                <div class="mb-3">
+                  <a href="index.php?route=information/contact" class="btn btn-outline-secondary btn-sm w-100 py-2 text-decoration-none d-block text-center" style="font-weight: 600; font-size: 0.82rem; border-color: #CBD5E1;">
+                    <i class="fa-solid fa-file-lines me-1 text-primary"></i> Request Official Proforma Invoice (PI) &amp; Spec Sheet
+                  </a>
+                </div>
+
                 <input type="hidden" name="product_id" value="{{ product_id }}" id="input-product-id"/>
                 <div id="error-quantity" class="form-text"></div>
+
+                {# Amazon-Style PDP Trust Grid #}
+                <div class="pb-pdp-trust-grid">
+                  <div class="pb-trust-card-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                      <strong>100% Inspected</strong>
+                      <small>Manufacturer Verified</small>
+                    </div>
+                  </div>
+                  <div class="pb-trust-card-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <div>
+                      <strong>Direct Dispatch</strong>
+                      <small>Full Tracking</small>
+                    </div>
+                  </div>
+                  <div class="pb-trust-card-item">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <div>
+                      <strong>GST 18% Credit</strong>
+                      <small>Tax Invoice</small>
+                    </div>
+                  </div>
+                  <div class="pb-trust-card-item">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <div>
+                      <strong>B2B Protection</strong>
+                      <small>Hassle-Free Policy</small>
+                    </div>
+                  </div>
+                </div>
               </div>
               {% if minimum > 1 %}
                 <div class="alert alert-warning"><i class="fa-solid fa-circle-info"></i> {{ text_minimum }}</div>
@@ -242,6 +347,7 @@
       </div>
       <ul class="nav nav-tabs">
         <li class="nav-item"><a href="#tab-description" data-bs-toggle="tab" class="nav-link active">{{ tab_description }}</a></li>
+        <li class="nav-item"><a href="#tab-b2b-specs" data-bs-toggle="tab" class="nav-link"><i class="fa-solid fa-certificate text-primary me-1"></i> Technical &amp; Compliance Specs</a></li>
         {% if attribute_groups %}
           <li class="nav-item"><a href="#tab-specification" data-bs-toggle="tab" class="nav-link">{{ tab_attribute }}</a></li>
         {% endif %}
@@ -258,6 +364,38 @@
               {% endfor %}
             </p>
           {% endif %}
+        </div>
+        <div id="tab-b2b-specs" class="tab-pane fade mb-4">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped" style="font-size: 0.88rem;">
+              <tbody>
+                <tr>
+                  <td class="fw-bold bg-light" style="width: 35%;">GST Input Tax Credit (ITC)</td>
+                  <td><span class="badge bg-success"><i class="fa-solid fa-check me-1"></i> 100% Eligible</span> &mdash; Full 18% GST Invoice provided with verified supplier GSTIN</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold bg-light">HSN Tariff Classification</td>
+                  <td>Commercial Harmonized Tariff Schedule (Chapter 84 / 73 / 39)</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold bg-light">Minimum Commercial Order (MOQ)</td>
+                  <td><strong>{{ minimum }} Units</strong> (Bulk tier discounts auto-apply at 50+ &amp; 200+ units)</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold bg-light">Commercial Packaging</td>
+                  <td>ISPM-15 Heat-Treated Wooden Pallet / 7-Ply Triple-Wall Heavy Corrugated Master Carton</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold bg-light">Quality Inspection</td>
+                  <td>Pre-dispatch Batch Inspection &amp; Factory Material Test Certificate (MTC) included</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold bg-light">Logistics &amp; Dispatch</td>
+                  <td>Pan-India Doorstep Commercial Freight via Verified E-Way Bill Surface Transporters</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         {% if attribute_groups %}
           <div id="tab-specification" class="tab-pane fade">

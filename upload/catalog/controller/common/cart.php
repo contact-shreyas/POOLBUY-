@@ -16,6 +16,18 @@ class Cart extends \Opencart\System\Engine\Controller {
 	public function index(): string {
 		$this->load->language('common/cart');
 
+		if (!$this->cart->hasProducts()) {
+			$data['text_items'] = sprintf($this->language->get('text_items'), 0, $this->currency->format(0, $this->session->data['currency']));
+			$data['products'] = [];
+			$data['totals'] = [];
+			$data['list'] = $this->url->link('common/cart.info', 'language=' . $this->config->get('config_language'));
+			$data['remove'] = $this->url->link('common/cart.remove', 'language=' . $this->config->get('config_language'));
+			$data['cart'] = $this->url->link('checkout/cart', 'language=' . $this->config->get('config_language'));
+			$data['checkout'] = $this->url->link('checkout/checkout', 'language=' . $this->config->get('config_language'));
+
+			return $this->load->view('common/cart', $data);
+		}
+
 		$totals = [];
 		$taxes = $this->cart->getTaxes();
 		$total = 0;

@@ -1,38 +1,54 @@
-<div class="product-thumb">
-  <div class="image"><a href="{{ href }}"><img src="{{ thumb }}" alt="{{ name }}" title="{{ name }}" class="img-fluid"/></a></div>
-  <div class="content">
-    <div class="description">
-      <h4><a href="{{ href }}">{{ name }}</a></h4>
-      <p>{{ description }}</p>
+<div class="product-thumb pb-b2b-thumb">
+  <div class="image position-relative">
+    <div class="pb-thumb-badges position-absolute top-0 start-0 m-2 d-flex flex-column gap-1" style="z-index: 2;">
+      <span class="badge" style="background: #0F294D; color: #FFFFFF; font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px;">
+        <i class="fa-solid fa-shield-halved text-success me-1"></i> GST Verified
+      </span>
+      {% if minimum > 1 %}
+        <span class="badge" style="background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px;">
+          MOQ: {{ minimum }} Units
+        </span>
+      {% endif %}
+    </div>
+    <a href="{{ href }}"><img src="{{ thumb }}" alt="{{ name }}" title="{{ name }}" class="img-fluid" loading="lazy"/></a>
+  </div>
+  <div class="content p-3 d-flex flex-column">
+    <div class="description mb-2">
+      <h4 class="h6 fw-bold mb-1" style="line-height: 1.35; height: 2.7em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+        <a href="{{ href }}" class="text-dark text-decoration-none">{{ name }}</a>
+      </h4>
+      <div class="text-muted small mb-2 text-truncate" style="font-size: 0.78rem;">
+        <i class="fa-solid fa-industry me-1 text-primary"></i> Direct Factory Dispatch &bull; 100% Tax Compliant
+      </div>
       {% if price %}
-        <div class="price">
+        <div class="price mb-2">
           {% if not special %}
-            <span class="price-new">{{ price }}</span>
+            <span class="price-new fw-bold text-dark" style="font-size: 1.15rem; color: #0F294D;">{{ price }}</span>
           {% else %}
-            <span class="price-new">{{ special }}</span> <span class="price-old">{{ price }}</span>
+            <span class="price-new fw-bold text-danger" style="font-size: 1.15rem;">{{ special }}</span> <span class="price-old text-muted text-decoration-line-through small">{{ price }}</span>
           {% endif %}
-          {% if tax %}
-            <span class="price-tax">{{ text_tax }} {{ tax }}</span>
-          {% endif %}
+          <div class="text-muted" style="font-size: 0.72rem;">Excl. 18% GST &bull; Bulk Tier Savings</div>
         </div>
       {% endif %}
       {% if review_status and rating %}
-        <div class="rating">
+        <div class="rating mb-2 small">
           {% for i in 1..5 %}
             {% if rating < i %}
-              <span class="fa-stack"><i class="fa-regular fa-star fa-stack-1x"></i></span>
+              <i class="fa-regular fa-star text-muted"></i>
             {% else %}
-              <span class="fa-stack"><i class="fa-solid fa-star fa-stack-1x"></i><i class="fa-regular fa-star fa-stack-1x"></i></span>
+              <i class="fa-solid fa-star text-warning"></i>
             {% endif %}
           {% endfor %}
         </div>
       {% endif %}
     </div>
-    <form method="post" data-oc-toggle="ajax" data-oc-load="{{ cart }}" data-oc-target="#cart">
-      <div class="button">
-        <button type="submit" formaction="{{ cart_add }}" data-bs-toggle="tooltip" title="{{ button_cart }}"><i class="fa-solid fa-shopping-cart"></i></button>
-        <button type="submit" formaction="{{ wishlist_add }}" data-bs-toggle="tooltip" title="{{ button_wishlist }}" ><i class="fa-solid fa-heart"></i></button>
-        <button type="submit" formaction="{{ compare_add }}" data-bs-toggle="tooltip" title="{{ button_compare }}"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+    <form method="post" data-oc-toggle="ajax" data-oc-load="{{ cart }}" data-oc-target="#cart" class="mt-auto">
+      <div class="d-flex gap-2">
+        <button type="submit" formaction="{{ cart_add }}" class="btn btn-sm btn-primary flex-grow-1 py-2 fw-semibold" style="background: #0F294D; border-color: #0F294D; border-radius: 6px;" title="{{ button_cart }}">
+          <i class="fa-solid fa-cart-shopping me-1"></i> Bulk Order
+        </button>
+        <button type="submit" formaction="{{ wishlist_add }}" class="btn btn-sm btn-outline-secondary px-2" style="border-radius: 6px;" data-bs-toggle="tooltip" title="{{ button_wishlist }}"><i class="fa-solid fa-heart"></i></button>
+        <button type="submit" formaction="{{ compare_add }}" class="btn btn-sm btn-outline-secondary px-2" style="border-radius: 6px;" data-bs-toggle="tooltip" title="{{ button_compare }}"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
       </div>
       <input type="hidden" name="product_id" value="{{ product_id }}"/> <input type="hidden" name="quantity" value="{{ minimum }}"/>
     </form>

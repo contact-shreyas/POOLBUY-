@@ -16,39 +16,48 @@ class Menu extends \Opencart\System\Engine\Controller {
 	public function index(): string {
 		$this->load->language('common/menu');
 
-		// Category
-		$this->load->model('catalog/category');
+		$cache_key = 'catalog.menu.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id');
+		$categories_cache = $this->cache->get($cache_key);
 
-		// Product
-		$this->load->model('catalog/product');
+		if (!empty($categories_cache)) {
+			$data['categories'] = $categories_cache;
+		} else {
+			// Category
+			$this->load->model('catalog/category');
 
-		$data['categories'] = [];
+			// Product
+			$this->load->model('catalog/product');
 
-		$categories = $this->model_catalog_category->getCategories(0);
+			$data['categories'] = [];
 
-		foreach ($categories as $category) {
-			// Level 2
-			$children_data = [];
+			$categories = $this->model_catalog_category->getCategories(0);
 
-			$children = $this->model_catalog_category->getCategories($category['category_id']);
+			foreach ($categories as $category) {
+				// Level 2
+				$children_data = [];
 
-			foreach ($children as $child) {
-				$filter_data = [
-					'filter_category_id'  => $child['category_id'],
-					'filter_sub_category' => true
-				];
+				$children = $this->model_catalog_category->getCategories($category['category_id']);
 
-				$children_data[] = [
-					'name' => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/category', 'language=' . $this->config->get('config_language') . '&path=' . $category['category_id'] . '_' . $child['category_id'])
-				];
+				foreach ($children as $child) {
+					$filter_data = [
+						'filter_category_id'  => $child['category_id'],
+						'filter_sub_category' => true
+					];
+
+					$children_data[] = [
+						'name' => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+						'href' => $this->url->link('product/category', 'language=' . $this->config->get('config_language') . '&path=' . $category['category_id'] . '_' . $child['category_id'])
+					];
+				}
+
+				// Level 1
+				$data['categories'][] = [
+					'children' => $children_data,
+					'href'     => $this->url->link('product/category', 'language=' . $this->config->get('config_language') . '&path=' . $category['category_id'])
+				] + $category;
 			}
 
-			// Level 1
-			$data['categories'][] = [
-				'children' => $children_data,
-				'href'     => $this->url->link('product/category', 'language=' . $this->config->get('config_language') . '&path=' . $category['category_id'])
-			] + $category;
+			$this->cache->set($cache_key, $data['categories']);
 		}
 
 		return $this->load->view('common/menu', $data);

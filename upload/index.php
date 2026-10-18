@@ -1,5 +1,4 @@
 <?php
-// Version
 define('VERSION', '4.1.0.4');
 
 // Configuration

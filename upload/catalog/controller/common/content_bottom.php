@@ -107,6 +107,10 @@ class ContentBottom extends \Opencart\System\Engine\Controller {
 			}
 		}
 
+		if (!$data['modules']) {
+			return '';
+		}
+
 		return $this->load->view('common/content_bottom', $data);
 	}
 }

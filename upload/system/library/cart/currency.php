@@ -40,6 +40,11 @@ class Currency {
 				'value'         => $result['value']
 			];
 		}
+
+		if (isset($this->currencies['INR'])) {
+			$this->currencies['INR']['symbol_left'] = '₹';
+			$this->currencies['INR']['symbol_right'] = '';
+		}
 	}
 
 	/**
@@ -64,6 +69,11 @@ class Currency {
 		$symbol_left = $this->currencies[$currency]['symbol_left'];
 		$symbol_right = $this->currencies[$currency]['symbol_right'];
 		$decimal_place = $this->currencies[$currency]['decimal_place'];
+
+		if ($currency === 'INR' || $symbol_left === '?' || strpos((string)$symbol_left, '?') !== false) {
+			$symbol_left = '₹';
+			$symbol_right = '';
+		}
 
 		if (!$value) {
 			$value = $this->currencies[$currency]['value'];

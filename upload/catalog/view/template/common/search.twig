@@ -1,4 +1,6 @@
-<form action="{{ action }}" method="post" class="input-group mb-3">
-	<input type="text" name="search" value="{{ search }}" placeholder="{{ text_search }}" class="form-control form-control-lg"/>
-	<button type="submit" class="btn btn-light btn-lg"><i class="fa-solid fa-magnifying-glass"></i></button>
+<form action="{{ action }}" method="post" class="pb-search-form">
+	<div class="input-group">
+		<input type="text" name="search" value="{{ search }}" placeholder="Search 10,000+ products, categories, SKU..." class="form-control pb-search-input" autocomplete="off"/>
+		<button type="submit" class="btn pb-search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+	</div>
 </form>

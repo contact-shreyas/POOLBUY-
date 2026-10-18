@@ -128,6 +128,50 @@ class Pool extends \Opencart\System\Engine\Model {
 	}
 
 	/**
+	 * @var array<int, array<int, array<string, mixed>>>
+	 */
+	protected static array $tiers_cache = [];
+
+	/**
+	 * Prime Tiers
+	 *
+	 * Pre-loads tiers in a single batch query for multiple pool IDs.
+	 *
+	 * @param array<int> $pool_ids
+	 *
+	 * @return void
+	 */
+	public function primeTiers(array $pool_ids): void {
+		$to_fetch = [];
+
+		foreach ($pool_ids as $id) {
+			$id = (int)$id;
+
+			if ($id > 0 && !isset(self::$tiers_cache[$id])) {
+				$to_fetch[$id] = $id;
+				self::$tiers_cache[$id] = [];
+			}
+		}
+
+		if (!$to_fetch) {
+			return;
+		}
+
+		$sql = "SELECT `tier_id`, `pool_id`, `min_qty`, `max_qty`, `price` FROM `" . DB_PREFIX . "poolbuy_pool_tier` WHERE `pool_id` IN (" . implode(',', $to_fetch) . ") ORDER BY `min_qty` ASC";
+		$query = $this->db->query($sql);
+
+		foreach ($query->rows as $row) {
+			$pid = (int)$row['pool_id'];
+			self::$tiers_cache[$pid][] = [
+				'tier_id' => $row['tier_id'],
+				'min_qty' => $row['min_qty'],
+				'max_qty' => $row['max_qty'],
+				'price'   => $row['price']
+			];
+		}
+	}
+
+	/**
 	 * Get Tiers
 	 *
 	 * @param int $pool_id
@@ -135,9 +179,13 @@ class Pool extends \Opencart\System\Engine\Model {
 	 * @return array<int, array<string, mixed>>
 	 */
 	public function getTiers(int $pool_id): array {
+		if (isset(self::$tiers_cache[$pool_id])) {
+			return self::$tiers_cache[$pool_id];
+		}
+
 		$query = $this->db->query("SELECT `tier_id`, `min_qty`, `max_qty`, `price` FROM `" . DB_PREFIX . "poolbuy_pool_tier` WHERE `pool_id` = '" . (int)$pool_id . "' ORDER BY `min_qty` ASC");
 
-		return $query->rows;
+		return self::$tiers_cache[$pool_id] = $query->rows;
 	}
 
 	/**
@@ -305,7 +353,16 @@ class Pool extends \Opencart\System\Engine\Model {
 		}
 
 		if (!empty($data['filter_category_id'])) {
-			$conditions[] = "p.`product_id` IN (SELECT `product_id` FROM `" . DB_PREFIX . "product_to_category` WHERE `category_id` = '" . (int)$data['filter_category_id'] . "')";
+			$conditions[] = "p.`product_id` IN (SELECT `p2c`.`product_id` FROM `" . DB_PREFIX . "product_to_category` `p2c` INNER JOIN `" . DB_PREFIX . "category_path` `cp` ON (`p2c`.`category_id` = `cp`.`category_id`) WHERE `cp`.`path_id` = '" . (int)$data['filter_category_id'] . "')";
+		}
+
+		if (!empty($data['filter_filter'])) {
+			$filters = explode(',', (string)$data['filter_filter']);
+			$prepared_filters = array_map(fn($f) => (int)$f, $filters);
+			$prepared_filters = array_filter($prepared_filters, fn($f) => $f > 0);
+			if ($prepared_filters) {
+				$conditions[] = "p.`product_id` IN (SELECT `pf`.`product_id` FROM `" . DB_PREFIX . "product_filter` `pf` WHERE `pf`.`filter_id` IN (" . implode(',', $prepared_filters) . "))";
+			}
 		}
 
 		if (!empty($data['filter_seller_id'])) {

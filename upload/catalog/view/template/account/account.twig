@@ -1,26 +1,26 @@
 {{ header }}
-<div id="account-account" class="container">
+<div id="account-account" class="pb-container py-4">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
       <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-       {% endfor %}
+    {% endfor %}
   </ul>
   {% if success %}
     <div class="alert alert-success alert-dismissible"><i class="fa-solid fa-circle-check"></i> {{ success }}</div>
   {% endif %}
   <div class="row">{{ column_left }}
     <div id="content" class="col">{{ content_top }}
-      <h1>{{ text_my_account }}</h1>
-      <ul class="list-unstyled">
-        <li><a href="{{ edit }}">{{ text_edit }}</a></li>
-        <li><a href="{{ password }}">{{ text_password }}</a></li>
-        <li><a href="{{ payment_method }}">{{ text_payment_method }}</a></li>
-        <li><a href="{{ address }}">{{ text_address }}</a></li>
-        <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+      <h1 class="h3 fw-bold mb-3">{{ text_my_account }}</h1>
+      <ul class="list-unstyled mb-4">
+        <li class="mb-3"><a href="index.php?route=extension/poolbuy/account" class="btn btn-sm btn-primary" style="background: #0F294D; border-color: #0F294D;"><i class="fa-solid fa-cubes-stacked me-2"></i> My Active Buying Pools &amp; Volume Commitments</a></li>
+        <li class="mb-1"><a href="{{ edit }}">{{ text_edit }}</a></li>
+        <li class="mb-1"><a href="{{ password }}">{{ text_password }}</a></li>
+        <li class="mb-1"><a href="{{ address }}">{{ text_address }}</a></li>
+        <li class="mb-1"><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
       </ul>
-      <h2>{{ text_my_orders }}</h2>
-      <ul class="list-unstyled">
-        <li><a href="{{ order }}">{{ text_order }}</a></li>
+      <h2 class="h4 fw-bold mb-3">{{ text_my_orders }}</h2>
+      <ul class="list-unstyled mb-4">
+        <li class="mb-1"><a href="{{ order }}">{{ text_order }}</a></li>
         <li><a href="{{ subscription }}">{{ text_subscription }}</a></li>
         <li><a href="{{ download }}">{{ text_download }}</a></li>
         {% if reward %}

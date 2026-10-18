@@ -53,6 +53,11 @@ class Twig {
 	}
 
 	/**
+	 * @var \Twig\Environment|null
+	 */
+	protected ?\Twig\Environment $twig = null;
+
+	/**
 	 * Render
 	 *
 	 * @param string               $filename
@@ -63,16 +68,6 @@ class Twig {
 	 */
 	public function render(string $filename, array $data = [], string $code = ''): string {
 		$file = $this->directory . $filename . '.twig';
-
-		/*
-		 * FYI: To all the Twig lovers out there!
-		 * The Twig syntax is good, but the implementation and the available methods is a joke!
-		 *
-		 * All the Symfony developer has done is create a garbage framework by putting 3rd party scripts into DI containers.
-		 * The Twig syntax, he ripped it off from Jinja and Django templates then did a garbage implementation!
-		 *
-		 * The fact that this system cache is just compiling php into more php code instead of html, is a disgrace!
-		 */
 
 		$namespace = '';
 
@@ -93,27 +88,32 @@ class Twig {
 		// We have to remove the root web directory.
 		$file = substr($file, strlen($this->root) + 1);
 
-		if ($code) {
-			// render from modified template code
-			$loader = new \Twig\Loader\ArrayLoader([$file => $code]);
-		} else {
-			$loader = $this->loader;
-		}
-
 		try {
-			// Initialize Twig environment
-			$config = [
-				'charset'     => 'utf-8',
-				'autoescape'  => false,
-				'debug'       => true,
-				'auto_reload' => true,
-				'cache'       => DIR_CACHE . 'template/'
-			];
+			if ($code) {
+				$loader = new \Twig\Loader\ArrayLoader([$file => $code]);
+				$twig = new \Twig\Environment($loader, [
+					'charset'     => 'utf-8',
+					'autoescape'  => false,
+					'debug'       => false,
+					'auto_reload' => true,
+					'cache'       => false
+				]);
+			} else {
+				if ($this->twig === null) {
+					$cache_dir = is_dir('/tmp') && is_writable('/tmp') ? '/tmp/opencart_cache/template/' : DIR_CACHE . 'template/';
+					if (!is_dir($cache_dir)) {
+						@mkdir($cache_dir, 0777, true);
+					}
 
-			$twig = new \Twig\Environment($loader, $config);
-
-			if ($config['debug']) {
-				$twig->addExtension(new \Twig\Extension\DebugExtension());
+					$this->twig = new \Twig\Environment($this->loader, [
+						'charset'     => 'utf-8',
+						'autoescape'  => false,
+						'debug'       => false,
+						'auto_reload' => true,
+						'cache'       => $cache_dir
+					]);
+				}
+				$twig = $this->twig;
 			}
 
 			return $twig->render($file, $data);
