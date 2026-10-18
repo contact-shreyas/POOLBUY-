@@ -16,6 +16,13 @@ const CATEGORY_ICONS: Record<string, string> = {
   'packaging-supply': 'inventory_2',
   'tools-safety': 'construction',
   'hospitality-kitchen': 'restaurant',
+  'jewellery-accessories': 'diamond',
+  'equipment-pumps': 'precision_manufacturing',
+  'hardware-fasteners': 'handyman',
+  'chemicals-treatment': 'science',
+  'agriculture-machinery': 'agriculture',
+  'electrical-power': 'bolt',
+  'safety-systems': 'security',
 };
 
 export default function CategoryChips({
