@@ -9,13 +9,14 @@ services:
     depends_on:
       - mysql
     command: >
-      bash -c "if [ ! -f /var/www/html/install.lock ]; then
-                 wait-for-it mysql:3306 -t 60 &&
-                 cp config-dist.php config.php
-                 cp admin/config-dist.php admin/config.php
-                 php /var/www/html/install/cli_install.php install --username admin --password admin --email email@example.com --http_server http://localhost/ --db_driver mysqli --db_hostname mysql --db_username root --db_password opencart --db_database opencart --db_port 3306 --db_prefix oc_;
-                 touch /var/www/html/install.lock;
+      bash -c "wait-for-it mysql:3306 -t 60 &&
+               if [ ! -f /var/www/html/config.php ] && [ -f /var/www/html/config-dist.php ]; then
+                 cp /var/www/html/config-dist.php /var/www/html/config.php;
                fi &&
+               if [ ! -f /var/www/html/admin/config.php ] && [ -f /var/www/html/admin/config-dist.php ]; then
+                 cp /var/www/html/admin/config-dist.php /var/www/html/admin/config.php;
+               fi &&
+               touch /var/www/html/install.lock &&
                apache2-foreground"
 
   mysql:
@@ -24,6 +25,8 @@ services:
       # Host 3306 is commonly occupied by a locally installed MySQL, so publish on
       # 3307 instead. Containers still reach this service as `mysql:3306` internally.
       - "3307:3306"
+    volumes:
+      - ./tools/poolbuy/poolbuy_complete_dump.sql:/docker-entrypoint-initdb.d/01_poolbuy.sql:ro
     environment:
       - MYSQL_ROOT_PASSWORD=opencart
       - MYSQL_DATABASE=opencart
